@@ -3,6 +3,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight, CheckCircle2 } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
+import TypewriterTitle from "@/components/ui/typewriter-title"
 
 export default function HeroSection() {
   return (
@@ -21,7 +22,26 @@ export default function HeroSection() {
             </div>
 
             <h1 className="font-headline text-3xl sm:text-4xl lg:text-4xl xl:text-5xl font-semibold tracking-tight text-foreground leading-[1.14]">
-              Accountable leadership for Mayang Imphal.
+              <span className="block">Accountable leadership</span>
+              <span className="block min-h-[1.15em] text-secondary">
+                <TypewriterTitle
+                  as="span"
+                  className="justify-start inline-flex font-headline text-secondary tracking-tight"
+                  textClassName="font-headline text-3xl sm:text-4xl lg:text-4xl xl:text-5xl leading-[1.14] text-secondary"
+                  sequences={[
+                    { text: "for Mayang Imphal.", deleteAfter: true },
+                    { text: "for youth & STEM.", deleteAfter: true },
+                    { text: "for statutory planning.", deleteAfter: true },
+                    { text: "for transparent works.", deleteAfter: true },
+                    { text: "for every household.", deleteAfter: false },
+                  ]}
+                  autoLoop={true}
+                  typingSpeed={55}
+                  deleteSpeed={30}
+                  pauseBeforeDelete={1400}
+                  loopDelay={1200}
+                />
+              </span>
             </h1>
 
             <p className="mt-5 text-sm sm:text-base text-muted-foreground leading-relaxed max-w-lg font-normal">
