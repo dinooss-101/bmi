@@ -3,7 +3,7 @@ import { Shield, FileText, Lock, Vote, Link as LinkIcon } from "lucide-react"
 
 export function SiteFooter() {
   return (
-    <footer className="bg-primary text-slate-300 border-t border-white/10 pt-16 pb-12">
+    <footer className="bg-brand-navy text-slate-300 border-t border-white/10 pt-16 pb-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pb-12 border-b border-white/10">
           {/* Col 1 */}
@@ -102,7 +102,7 @@ export function SiteFooter() {
             <span className="text-slate-400">Mayang Imphal, Manipur 795132</span>
             <a
               className="text-secondary-container hover:underline active:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-              href="#hero"
+              href="#"
             >
               Back to top
             </a>

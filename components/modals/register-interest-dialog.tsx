@@ -54,7 +54,7 @@ export function RegisterInterestDialog({
       setErrorMessage("Please enter a valid email address.")
       return
     }
-    if (isMinor && (!guardianName.trim() || !guardianConsent)) {
+    if (role === "STUDENT" && isMinor && (!guardianName.trim() || !guardianConsent)) {
       setErrorMessage("Applicants under 18 require parental/guardian consent and guardian name.")
       return
     }

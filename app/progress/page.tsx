@@ -79,13 +79,17 @@ export default function ProgressPage() {
     })
   }, [searchQuery, selectedCategory, selectedStage])
 
-  const handleCopyAllCitations = () => {
+  const handleCopyAllCitations = async () => {
     const text = filteredProjects
       .map((p) => `[${p.id}] ${p.title} | Authority: ${p.responsibleAuthority.name} | Stage: ${p.currentStage} | Source: ${p.sources[0]?.title} (${p.sources[0]?.publicationDate})`)
       .join("\n")
-    navigator.clipboard?.writeText(text)
-    setCopied(true)
-    setTimeout(() => setCopied(false), 2500)
+    try {
+      await navigator.clipboard.writeText(text)
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2500)
+    } catch {
+      // clipboard unavailable or denied — silently ignore
+    }
   }
 
   return (

@@ -119,7 +119,7 @@ export default function FutureLabsPage() {
             </div>
 
             <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-              <TabsList className="bg-muted p-1 rounded-xl mb-8">
+              <TabsList className="bg-muted p-1 rounded-xl mb-8 flex flex-wrap sm:flex-nowrap sm:overflow-x-auto gap-1">
                 {futureLabsTracks.map((t) => (
                   <TabsTrigger key={t.id} value={t.id} className="text-xs sm:text-sm px-4 py-2">
                     {t.title}

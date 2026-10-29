@@ -254,7 +254,7 @@ export default function AboutPage() {
                 </div>
 
                 <Link
-                  href="/#community-form"
+                  href="/#constituent-desk"
                   className="inline-flex shrink-0 items-center justify-center rounded-md bg-brand-navy text-white hover:bg-brand-navy/90 dark:bg-brand-blue dark:hover:bg-brand-blue/90 px-4 py-2 text-xs font-semibold active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary"
                 >
                   Submit Evidence Note
