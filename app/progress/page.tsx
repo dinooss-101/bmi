@@ -3,7 +3,7 @@
 import React, { useState, useMemo } from "react"
 import Link from "next/link"
 import { SiteHeader } from "@/components/site-header"
-import { SiteFooter } from "@/components/site-footer"
+import Footer from "@/components/footer-2"
 import { ProjectCard } from "@/components/project-card"
 import { mockProjects } from "@/lib/data/projects"
 import { Input } from "@/components/ui/input"
@@ -373,7 +373,7 @@ export default function ProgressPage() {
         </section>
       </main>
 
-      <SiteFooter />
+      <Footer />
     </div>
   )
 }

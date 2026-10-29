@@ -3,7 +3,7 @@
 import React, { useState, useMemo } from "react"
 import Link from "next/link"
 import { SiteHeader } from "@/components/site-header"
-import { SiteFooter } from "@/components/site-footer"
+import Footer from "@/components/footer-2"
 import { ScholarshipCard } from "@/components/scholarship-card"
 import { mockScholarships } from "@/lib/data/scholarships"
 import { Input } from "@/components/ui/input"
@@ -62,10 +62,7 @@ export default function ScholarshipsPage() {
       if (selectedLevel !== "ALL") {
         const matchesLevel =
           scheme.level === selectedLevel ||
-          (scheme.slug === "nec-merit-scholarship-renewal" &&
-            ["UNDERGRADUATE", "POSTGRADUATE", "RESEARCH_FELLOWSHIP"].includes(selectedLevel)) ||
-          (scheme.slug === "post-matric-scholarship-manipur" &&
-            ["HIGHER_SECONDARY", "UNDERGRADUATE", "POSTGRADUATE"].includes(selectedLevel))
+          (scheme.levels && scheme.levels.includes(selectedLevel as any))
         if (!matchesLevel) return false
       }
 
@@ -421,7 +418,7 @@ export default function ScholarshipsPage() {
         </section>
       </main>
 
-      <SiteFooter />
+      <Footer />
     </div>
   )
 }

@@ -14,24 +14,14 @@ interface NavLinkItem {
   exactPath?: string
 }
 
-const HOME_NAV_ITEMS: NavLinkItem[] = [
+const NAV_ITEMS: NavLinkItem[] = [
   { href: "/#mandate", label: "Mandate", exactPath: "/" },
-  { href: "/#community-action", label: "Field Journal", exactPath: "/" },
-  { href: "/#pillars", label: "Pillars", exactPath: "/" },
-  { href: "/#ledger", label: "Ledger", exactPath: "/" },
-  { href: "/#voices", label: "Voices", exactPath: "/" },
-  { href: "/#faqs", label: "FAQ", exactPath: "/" },
-  { href: "/#constituent-desk", label: "Desk", exactPath: "/" },
-]
-
-const SUBPAGE_NAV_ITEMS: NavLinkItem[] = [
-  { href: "/", label: "Home", exactPath: "/" },
-  { href: "/future-labs", label: "Labs", exactPath: "/future-labs" },
   { href: "/development", label: "Plan", exactPath: "/development" },
+  { href: "/future-labs", label: "Labs", exactPath: "/future-labs" },
   { href: "/progress", label: "Track", exactPath: "/progress" },
   { href: "/scholarships", label: "Scholars", exactPath: "/scholarships" },
   { href: "/about", label: "About", exactPath: "/about" },
-  { href: "/contact", label: "Contact", exactPath: "/contact" },
+  { href: "/contact", label: "Desk", exactPath: "/contact" },
 ]
 
 export function SiteHeader() {
@@ -49,9 +39,6 @@ export function SiteHeader() {
     return () => window.removeEventListener("hashchange", handleHash)
   }, [])
 
-  const isHome = pathname === "/"
-  const currentNavItems = isHome ? HOME_NAV_ITEMS : SUBPAGE_NAV_ITEMS
-
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     if (href.includes("#")) {
       const hashPart = href.split("#")[1]
@@ -68,11 +55,8 @@ export function SiteHeader() {
   }
 
   const isItemActive = (item: NavLinkItem) => {
-    if (isHome) {
-      if (activeHash) {
-        return item.href === `/#${activeHash.replace("#", "")}`
-      }
-      return item.href === "/#mandate"
+    if (item.exactPath === "/") {
+      return pathname === "/" && (!activeHash || item.href === `/#${activeHash.replace("#", "")}`)
     }
     return item.exactPath === pathname
   }
@@ -94,7 +78,7 @@ export function SiteHeader() {
           aria-label="Primary navigation"
           className="hidden md:flex items-center gap-1 sm:gap-2 shrink-0"
         >
-          {currentNavItems.map((item) => {
+          {NAV_ITEMS.map((item) => {
             const active = isItemActive(item)
             return (
               <Link
@@ -158,7 +142,7 @@ export function SiteHeader() {
 
                   {/* Mobile Navigation Links */}
                   <nav className="flex flex-col divide-y divide-border border border-border bg-card">
-                    {currentNavItems.map((item) => {
+                    {NAV_ITEMS.map((item) => {
                       const active = isItemActive(item)
                       return (
                         <Link

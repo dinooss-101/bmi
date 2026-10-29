@@ -1,7 +1,7 @@
 import React from "react"
 import Link from "next/link"
 import { SiteHeader } from "@/components/site-header"
-import { SiteFooter } from "@/components/site-footer"
+import Footer from "@/components/footer-2"
 import { Badge } from "@/components/ui/badge"
 import {
   ArrowLeft,
@@ -265,7 +265,7 @@ export default function AboutPage() {
         </section>
       </main>
 
-      <SiteFooter />
+      <Footer />
     </div>
   )
 }

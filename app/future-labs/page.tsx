@@ -3,7 +3,7 @@
 import React, { useState } from "react"
 import Link from "next/link"
 import { SiteHeader } from "@/components/site-header"
-import { SiteFooter } from "@/components/site-footer"
+import Footer from "@/components/footer-2"
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -340,7 +340,7 @@ export default function FutureLabsPage() {
         </section>
       </main>
 
-      <SiteFooter />
+      <Footer />
     </div>
   )
 }

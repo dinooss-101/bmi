@@ -9,6 +9,7 @@ export const mockScholarships: ScholarshipScheme[] = [
     academicYear: "2026–27",
     applicationCycle: "FRESH_AND_RENEWAL",
     level: "UNDERGRADUATE",
+    levels: ["UNDERGRADUATE"],
     eligibilitySummary:
       "For students with domicile of North Eastern states who have passed Class XII and secured admission in general degree, technical, or professional courses in recognized universities/colleges. Family income ceiling: ₹4.50 lakh per annum.",
     keyExclusions: "Not applicable for distance education or open university courses.",
@@ -28,6 +29,7 @@ export const mockScholarships: ScholarshipScheme[] = [
     academicYear: "2026–27",
     applicationCycle: "RENEWAL",
     level: "UNDERGRADUATE",
+    levels: ["UNDERGRADUATE", "POSTGRADUATE", "RESEARCH_FELLOWSHIP"],
     eligibilitySummary:
       "Financial assistance for ongoing eligible students enrolled in recognized diploma, degree, postgraduate, and M.Phil/Ph.D. technical/professional programs across India.",
     keyExclusions: "Currently designated for renewal applicants on the National Scholarship Portal.",
@@ -47,6 +49,7 @@ export const mockScholarships: ScholarshipScheme[] = [
     academicYear: "2026–27",
     applicationCycle: "FRESH_AND_RENEWAL",
     level: "HIGHER_SECONDARY",
+    levels: ["HIGHER_SECONDARY", "UNDERGRADUATE", "POSTGRADUATE"],
     eligibilitySummary:
       "Assistance for eligible students belonging to marginalized categories studying at post-matriculation levels (Class XI, XII, degree, postgraduate, technical certificates).",
     studentDeadline: "2026-11-30",
@@ -65,6 +68,7 @@ export const mockScholarships: ScholarshipScheme[] = [
     academicYear: "2026–27",
     applicationCycle: "FRESH_AND_RENEWAL",
     level: "UNDERGRADUATE",
+    levels: ["UNDERGRADUATE", "POSTGRADUATE"],
     eligibilitySummary:
       "Merit-cum-means scholarship for students above 80th percentile of successful candidates in Class XII from respective state examination boards.",
     keyExclusions: "Cannot be availed simultaneously with other central government scholarships.",

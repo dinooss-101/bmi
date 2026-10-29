@@ -3,17 +3,20 @@ import { MapPin, Mail, Clock } from "lucide-react"
 
 export default function Footer() {
   const navLinks = [
-    { href: "/#mandate", label: "2027 Civic Mandate" },
-    { href: "/#community-action", label: "Ground Field Journal" },
-    { href: "/#pillars", label: "Core Policy Pillars" },
-    { href: "/#ledger", label: "Decoupled Accountability Ledger" },
-    { href: "/#constituent-desk", label: "Direct Constituent Desk" },
+    { href: "/#mandate", label: "Civic Mandate (2027)" },
+    { href: "/development", label: "Master Plan 2045" },
+    { href: "/future-labs", label: "Future Labs & STEM" },
+    { href: "/progress", label: "Decoupled Tracker" },
+    { href: "/scholarships", label: "Scholarship Directory" },
+    { href: "/about", label: "Statutory Disclosures" },
+    { href: "/contact", label: "Constituency Desk" },
   ]
 
   const statutoryLinks = [
+    { href: "https://townplanning.mn.gov.in", label: "Manipur Town Planning Department" },
     { href: "https://amrut.gov.in", label: "AMRUT 2.0 GIS Master Plan" },
     { href: "https://lgdirectory.gov.in", label: "Local Government Directory (LGD 250326)" },
-    { href: "https://scholarships.gov.in", label: "National Scholarship Portal" },
+    { href: "https://scholarships.gov.in", label: "National Scholarship Portal (NSP)" },
     { href: "https://aim.gov.in/atl", label: "Atal Innovation Mission (ATL)" },
     { href: "https://necouncil.gov.in", label: "North Eastern Council (NEC)" },
   ]
