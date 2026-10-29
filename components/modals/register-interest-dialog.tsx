@@ -78,9 +78,9 @@ export function RegisterInterestDialog({
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       {children && <DialogTrigger render={children} />}
-      <DialogContent className="max-w-lg max-h-[90vh] overflow-y-auto">
+      <DialogContent className="w-[calc(100vw-2rem)] sm:max-w-lg max-h-[90vh] overflow-y-auto p-4 sm:p-6">
         <DialogHeader className="flex flex-col gap-2">
-          <Badge variant="outline" className="w-fit border-brand-forest/30 text-brand-forest text-xs">
+          <Badge variant="outline" className="w-fit border-secondary/30 text-secondary text-xs">
             Preview Mode · Program Interest
           </Badge>
           <DialogTitle className="font-heading text-2xl font-semibold text-foreground">
@@ -107,7 +107,7 @@ export function RegisterInterestDialog({
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="flex flex-col gap-4 py-2">
-            <div className="rounded-md border border-amber-500/20 bg-amber-500/10 p-3 text-xs leading-relaxed text-amber-900 dark:text-amber-200">
+            <div className="rounded-none border border-amber-500/20 bg-amber-500/10 p-3 text-xs leading-relaxed text-amber-900 dark:text-amber-200">
               <span className="font-semibold flex items-center gap-1 mb-1">
                 <ShieldAlert className="size-3.5" /> Prototype Notice:
               </span>
@@ -115,7 +115,7 @@ export function RegisterInterestDialog({
             </div>
 
             {errorMessage && (
-              <div className="rounded-md border border-rose-500/20 bg-rose-500/10 p-2.5 text-xs text-rose-800 dark:text-rose-200 flex items-center gap-1.5">
+              <div className="rounded-none border border-rose-500/20 bg-rose-500/10 p-2.5 text-xs text-rose-800 dark:text-rose-200 flex items-center gap-1.5">
                 <AlertCircle className="size-4 shrink-0" />
                 <span>{errorMessage}</span>
               </div>
@@ -128,7 +128,7 @@ export function RegisterInterestDialog({
                   id="prog-type"
                   value={programType}
                   onChange={(e) => setProgramType(e.target.value as "FUTURE_LABS" | "DIASPORA_MENTOR" | "SCHOLARSHIP_ALERT")}
-                  className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm text-foreground focus-visible:outline-ring/50"
+                  className="w-full rounded-none border border-input bg-background px-3 py-2 text-base sm:text-sm text-foreground focus-visible:outline-ring/50"
                 >
                   <option value="FUTURE_LABS">Mayang Imphal Future Labs (STEM, Robotics & Coding)</option>
                   <option value="DIASPORA_MENTOR">Global Mentor Circle (Diaspora Volunteer)</option>
@@ -142,7 +142,7 @@ export function RegisterInterestDialog({
                   id="user-role"
                   value={role}
                   onChange={(e) => setRole(e.target.value)}
-                  className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm text-foreground focus-visible:outline-ring/50"
+                  className="w-full rounded-none border border-input bg-background px-3 py-2 text-base sm:text-sm text-foreground focus-visible:outline-ring/50"
                 >
                   <option value="STUDENT">Secondary / College Student</option>
                   <option value="PARENT">Parent or Legal Guardian</option>
@@ -158,7 +158,7 @@ export function RegisterInterestDialog({
                   placeholder="Your full name"
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
-                  className="text-sm"
+                  className="text-base sm:text-sm"
                 />
               </Field>
 
@@ -170,18 +170,18 @@ export function RegisterInterestDialog({
                   placeholder="name@example.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="text-sm"
+                  className="text-base sm:text-sm"
                 />
               </Field>
 
               {role === "STUDENT" && (
-                <div className="flex flex-col gap-2 rounded-md border border-border/80 bg-muted/20 p-3 text-xs">
+                <div className="flex flex-col gap-2 rounded-none border border-border/80 bg-muted/20 p-3 text-xs">
                   <label className="flex items-center gap-2 font-medium text-foreground cursor-pointer">
                     <input
                       type="checkbox"
                       checked={isMinor}
                       onChange={(e) => setIsMinor(e.target.checked)}
-                      className="rounded border-input text-brand-blue"
+                      className="rounded border-input text-secondary"
                     />
                     I am under 18 years of age
                   </label>
@@ -203,7 +203,7 @@ export function RegisterInterestDialog({
                           type="checkbox"
                           checked={guardianConsent}
                           onChange={(e) => setGuardianConsent(e.target.checked)}
-                          className="mt-0.5 rounded border-input text-brand-blue"
+                          className="mt-0.5 rounded border-input text-secondary"
                         />
                         Parent/Guardian confirms permission for the student to register interest in upcoming supervised workshops.
                       </label>
@@ -213,20 +213,20 @@ export function RegisterInterestDialog({
               )}
 
               {programType === "DIASPORA_MENTOR" && (
-                <div className="rounded-md border border-border/80 bg-muted/40 p-3 text-xs text-muted-foreground leading-relaxed">
+                <div className="rounded-none border border-border/80 bg-muted/40 p-3 text-xs text-muted-foreground leading-relaxed">
                   <span className="font-semibold text-foreground block mb-1">Mentor Safeguarding Protocol:</span>
                   All volunteer mentors must complete credential screening and agree to supervised group interaction guidelines before participating in student sessions.
                 </div>
               )}
             </FieldGroup>
 
-            <DialogFooter className="flex items-center justify-between border-t border-border/60 pt-4">
-              <span className="text-[11px] text-muted-foreground">Preview demonstration</span>
+            <DialogFooter className="flex flex-col-reverse sm:flex-row items-stretch sm:items-center justify-between gap-3 border-t border-border/60 pt-4">
+              <span className="text-[11px] text-muted-foreground text-center sm:text-left">Preview demonstration</span>
               <div className="flex items-center gap-2">
-                <Button type="button" variant="outline" size="sm" onClick={() => setIsOpen(false)}>
+                <Button type="button" variant="outline" size="sm" onClick={() => setIsOpen(false)} className="flex-1 sm:flex-initial min-h-[44px] sm:min-h-0">
                   Cancel
                 </Button>
-                <Button type="submit" size="sm" className="bg-primary text-primary-foreground">
+                <Button type="submit" size="sm" className="flex-1 sm:flex-initial min-h-[44px] sm:min-h-0 bg-primary text-primary-foreground">
                   Submit Preview
                 </Button>
               </div>

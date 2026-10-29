@@ -6,15 +6,15 @@ export function PoliticianLedger() {
   const metrics = [
     { value: "~70 sq km", label: "Proposed planning area under AMRUT 2.0" },
     { value: "2045", label: "Statutory municipal planning horizon" },
-    { value: "0", label: "Unverified claims — all gazetted" },
+    { value: "0", label: "Unverified claims: all gazetted" },
     { value: "100%", label: "Public audit trail on civic allocations" },
   ]
 
   return (
-    <section className="border-b border-border bg-background py-20 sm:py-28 lg:py-32" id="ledger">
-      <div className="mx-auto max-w-5xl px-6 sm:px-8 lg:px-10">
-        <div className="max-w-2xl mb-14">
-          <h2 className="font-headline text-3xl sm:text-4xl font-semibold text-foreground tracking-tight">
+    <section className="border-b border-border bg-background py-14 sm:py-20 lg:py-28" id="ledger">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+        <div className="max-w-2xl mb-10 sm:mb-14">
+          <h2 className="font-headline text-2xl sm:text-4xl font-semibold text-foreground tracking-tight">
             Decoupled tracking: ground reality over paperwork.
           </h2>
           <p className="mt-3 text-sm sm:text-base text-muted-foreground leading-relaxed">
@@ -26,7 +26,7 @@ export function PoliticianLedger() {
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 pb-12 border-b border-border">
           {metrics.map((m) => (
             <div key={m.label} className="space-y-2">
-              <div className="font-headline text-3xl sm:text-4xl font-bold text-foreground">
+              <div className="font-headline text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground">
                 {m.value}
               </div>
               <p className="text-xs text-muted-foreground leading-relaxed">

@@ -1,3 +1,4 @@
+import type { Viewport } from "next"
 import { Public_Sans, Source_Serif_4, Geist_Mono } from "next/font/google"
 
 import "./globals.css"
@@ -18,6 +19,11 @@ const fontMono = Geist_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
 })
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+}
 
 export default function RootLayout({
   children,

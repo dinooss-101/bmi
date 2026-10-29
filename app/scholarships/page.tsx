@@ -98,39 +98,39 @@ export default function ScholarshipsPage() {
   }
 
   return (
-    <div className="flex min-h-screen flex-col bg-background selection:bg-brand-blue selection:text-white">
+    <div className="flex min-h-screen flex-col bg-background selection:bg-secondary selection:text-secondary-foreground">
       <SiteHeader />
 
       <main className="flex-1">
         {/* Page Hero */}
-        <div className="bg-brand-navy text-white py-16 md:py-20 border-b border-border/20">
+        <div className="bg-primary text-primary-foreground py-12 sm:py-16 md:py-20 border-b border-border/20">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col gap-4 max-w-3xl">
               <Link
                 href="/"
-                className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-300 hover:text-white active:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white transition-colors w-fit"
+                className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary-foreground/80 hover:text-primary-foreground active:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary transition-colors w-fit"
               >
                 <ArrowLeft className="size-3.5" /> Back to Overview
               </Link>
 
               <div className="flex items-center gap-2">
-                <Badge variant="outline" className="border-emerald-400/40 bg-emerald-400/10 text-emerald-300 text-xs font-medium">
+                <Badge variant="outline" className="rounded-none border-primary-foreground/30 bg-primary-foreground/10 text-primary-foreground text-xs font-medium">
                   Academic Year 2026 to 2027
                 </Badge>
-                <span className="text-xs text-slate-300">National Scholarship Portal Verified</span>
+                <span className="text-xs text-primary-foreground/80">National Scholarship Portal Verified</span>
               </div>
 
-              <h1 className="font-heading text-3xl sm:text-5xl font-bold tracking-tight text-white leading-tight">
+              <h1 className="font-heading text-3xl sm:text-5xl font-bold tracking-tight text-primary-foreground leading-tight">
                 Scholarships &amp; Global Pathways
               </h1>
 
-              <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
+              <p className="text-sm sm:text-base text-primary-foreground/85 leading-relaxed">
                 Direct, transparent access to central and state scholarship schemes for students of Mayang Imphal, paired with screened mentorship to connect national and international higher education opportunities.
               </p>
 
-              <div className="pt-2 flex flex-wrap items-center gap-3">
+              <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto">
                 <RegisterInterestDialog initialProgramType="SCHOLARSHIP_ALERT">
-                  <Button className="bg-brand-blue hover:bg-brand-blue/90 text-white text-xs sm:text-sm font-medium active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary disabled:opacity-50">
+                  <Button className="rounded-none bg-secondary hover:bg-secondary/90 text-secondary-foreground text-xs sm:text-sm font-semibold min-h-[44px] justify-center active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary disabled:opacity-50">
                     Get Deadline Alerts via Email
                   </Button>
                 </RegisterInterestDialog>
@@ -138,7 +138,7 @@ export default function ScholarshipsPage() {
                   href="https://scholarships.gov.in"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs text-slate-300 hover:text-white active:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white py-2 px-3 border border-white/20 rounded-md transition-colors"
+                  className="inline-flex items-center justify-center gap-1.5 text-xs text-primary-foreground/80 hover:text-primary-foreground active:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary py-2.5 px-3 min-h-[44px] border border-primary-foreground/30 rounded-none transition-colors"
                 >
                   <span>Visit National Scholarship Portal</span>
                   <ExternalLink className="size-3" />
@@ -149,19 +149,19 @@ export default function ScholarshipsPage() {
         </div>
 
         {/* Directory Controls & Listings with Dropdown Menus */}
-        <section className="py-12 bg-background border-b border-border/60">
+        <section className="py-8 sm:py-12 bg-background border-b border-border/60">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             {/* Filter Controls Bar */}
-            <div className="rounded-xl border border-border/80 bg-card p-5 mb-8 shadow-xs">
-              <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
+            <div className="rounded-none border border-border/80 bg-card p-4 sm:p-5 mb-8 shadow-xs">
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-3 sm:gap-4 items-center">
                 {/* Search Field */}
                 <div className="md:col-span-5 relative">
-                  <Search className="absolute left-3 top-2.5 size-4 text-muted-foreground" />
+                  <Search className="absolute left-3 top-3 sm:top-2.5 size-4 text-muted-foreground" />
                   <Input
                     placeholder="Search by scheme name, sponsor, or keyword..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="pl-9 text-xs sm:text-sm h-9"
+                    className="pl-9 text-base sm:text-sm h-10 sm:h-9 rounded-none"
                   />
                 </div>
 
@@ -170,13 +170,13 @@ export default function ScholarshipsPage() {
                   <DropdownMenu>
                     <DropdownMenuTrigger
                       render={
-                        <Button variant="outline" size="sm" className="w-full justify-between h-9 text-xs font-normal border-border bg-background">
+                        <Button variant="outline" size="sm" className="w-full justify-between h-10 sm:h-9 text-xs font-normal border-border bg-background rounded-none">
                           <span className="truncate">{cycleLabels[selectedCycle]}</span>
                           <ChevronDown className="size-3.5 opacity-60 shrink-0" />
                         </Button>
                       }
                     />
-                    <DropdownMenuContent className="w-60 p-1 bg-popover border border-border/80 shadow-md rounded-lg">
+                    <DropdownMenuContent className="w-[calc(100vw-2.5rem)] sm:w-60 max-w-xs p-1 bg-popover border border-border/80 shadow-md rounded-none">
                       <DropdownMenuLabel className="text-xs font-semibold text-muted-foreground">
                         Filter by Application Cycle
                       </DropdownMenuLabel>
@@ -184,10 +184,10 @@ export default function ScholarshipsPage() {
                         <DropdownMenuItem
                           key={key}
                           onClick={() => setSelectedCycle(key)}
-                          className="flex items-center justify-between text-xs py-1.5 px-2 rounded cursor-pointer"
+                          className="flex items-center justify-between text-xs py-1.5 px-2 rounded-none cursor-pointer"
                         >
                           <span className="truncate">{label}</span>
-                          {selectedCycle === key && <Check className="size-3.5 text-brand-blue shrink-0" />}
+                          {selectedCycle === key && <Check className="size-3.5 text-secondary shrink-0" />}
                         </DropdownMenuItem>
                       ))}
                     </DropdownMenuContent>
@@ -199,13 +199,13 @@ export default function ScholarshipsPage() {
                   <DropdownMenu>
                     <DropdownMenuTrigger
                       render={
-                        <Button variant="outline" size="sm" className="w-full justify-between h-9 text-xs font-normal border-border bg-background">
+                        <Button variant="outline" size="sm" className="w-full justify-between h-10 sm:h-9 text-xs font-normal border-border bg-background rounded-none">
                           <span className="truncate">{levelLabels[selectedLevel]}</span>
                           <ChevronDown className="size-3.5 opacity-60 shrink-0" />
                         </Button>
                       }
                     />
-                    <DropdownMenuContent className="w-64 p-1 bg-popover border border-border/80 shadow-md rounded-lg">
+                    <DropdownMenuContent className="w-[calc(100vw-2.5rem)] sm:w-64 max-w-xs p-1 bg-popover border border-border/80 shadow-md rounded-none">
                       <DropdownMenuLabel className="text-xs font-semibold text-muted-foreground">
                         Filter by Study Level
                       </DropdownMenuLabel>
@@ -213,10 +213,10 @@ export default function ScholarshipsPage() {
                         <DropdownMenuItem
                           key={key}
                           onClick={() => setSelectedLevel(key)}
-                          className="flex items-center justify-between text-xs py-1.5 px-2 rounded cursor-pointer"
+                          className="flex items-center justify-between text-xs py-1.5 px-2 rounded-none cursor-pointer"
                         >
                           <span className="truncate">{label}</span>
-                          {selectedLevel === key && <Check className="size-3.5 text-brand-blue shrink-0" />}
+                          {selectedLevel === key && <Check className="size-3.5 text-secondary shrink-0" />}
                         </DropdownMenuItem>
                       ))}
                     </DropdownMenuContent>
@@ -228,22 +228,22 @@ export default function ScholarshipsPage() {
                   <DropdownMenu>
                     <DropdownMenuTrigger
                       render={
-                        <Button variant="outline" size="sm" className="w-full justify-between h-9 text-xs font-medium border-border bg-background">
+                        <Button variant="outline" size="sm" className="w-full justify-between h-10 sm:h-9 text-xs font-medium border-border bg-background rounded-none">
                           <span className="inline-flex items-center gap-1.5">
-                            <Download className="size-3.5 text-brand-forest" />
+                            <Download className="size-3.5 text-secondary" />
                             <span>Export</span>
                           </span>
                           <ChevronDown className="size-3.5 opacity-60 shrink-0" />
                         </Button>
                       }
                     />
-                    <DropdownMenuContent className="w-60 p-1 bg-popover border border-border/80 shadow-md rounded-lg">
+                    <DropdownMenuContent className="w-[calc(100vw-2.5rem)] sm:w-60 max-w-xs p-1 bg-popover border border-border/80 shadow-md rounded-none">
                       <DropdownMenuLabel className="text-xs font-semibold text-muted-foreground">
                         Scholarship Data Options
                       </DropdownMenuLabel>
                       <DropdownMenuItem
                         onClick={handleCopyDeadlines}
-                        className="flex items-center gap-2 text-xs py-1.5 px-2 rounded cursor-pointer"
+                        className="flex items-center gap-2 text-xs py-1.5 px-2 rounded-none cursor-pointer"
                       >
                         <Share2 className="size-3.5 text-muted-foreground" />
                         <span>{copied ? "Deadlines Copied!" : "Copy Active Deadlines"}</span>
@@ -255,7 +255,7 @@ export default function ScholarshipsPage() {
                             href="https://scholarships.gov.in"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center justify-between text-xs py-1.5 px-2 rounded cursor-pointer"
+                            className="flex items-center justify-between text-xs py-1.5 px-2 rounded-none cursor-pointer"
                           />
                         }
                       >
@@ -279,7 +279,7 @@ export default function ScholarshipsPage() {
                       setSelectedCycle("ALL")
                       setSelectedLevel("ALL")
                     }}
-                    className="inline-flex items-center gap-1 text-brand-blue hover:underline font-medium cursor-pointer"
+                    className="inline-flex items-center gap-1 text-secondary hover:underline font-medium cursor-pointer"
                   >
                     <RotateCcw className="size-3" />
                     <span>Reset all filters</span>
@@ -296,7 +296,7 @@ export default function ScholarshipsPage() {
                 ))}
               </div>
             ) : (
-              <div className="rounded-xl border border-dashed border-border p-12 text-center flex flex-col items-center justify-center gap-3">
+              <div className="rounded-none border border-dashed border-border p-12 text-center flex flex-col items-center justify-center gap-3">
                 <GraduationCap className="size-10 text-muted-foreground" />
                 <h3 className="font-heading text-lg font-semibold text-foreground">No matching schemes found</h3>
                 <p className="text-xs text-muted-foreground max-w-sm">
@@ -310,7 +310,7 @@ export default function ScholarshipsPage() {
                     setSelectedCycle("ALL")
                     setSelectedLevel("ALL")
                   }}
-                  className="mt-2 text-xs"
+                  className="mt-2 text-xs rounded-none"
                 >
                   Clear Filters
                 </Button>
@@ -320,7 +320,7 @@ export default function ScholarshipsPage() {
         </section>
 
         {/* Essential Documents & Checklist */}
-        <section className="py-14 bg-brand-mist/40 dark:bg-muted/10 border-b border-border/60">
+        <section className="py-14 bg-muted/30 border-b border-border/60">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="max-w-2xl mb-8">
               <h2 className="font-heading text-2xl font-bold text-foreground">
@@ -332,32 +332,32 @@ export default function ScholarshipsPage() {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              <div className="rounded-lg border border-border/80 bg-card p-4 flex flex-col gap-2">
-                <div className="font-semibold text-xs text-brand-blue">01. Income Certificate</div>
+              <div className="rounded-none border border-border/80 bg-card p-4 flex flex-col gap-2">
+                <div className="font-mono font-semibold text-xs text-secondary">01. Income Certificate</div>
                 <h4 className="font-heading text-sm font-semibold text-foreground">Valid Revenue Authority Certificate</h4>
                 <p className="text-xs text-muted-foreground leading-relaxed">
                   Issued by a competent Sub-Divisional Officer (SDO) or Deputy Commissioner. Ensure it is within the current financial year.
                 </p>
               </div>
 
-              <div className="rounded-lg border border-border/80 bg-card p-4 flex flex-col gap-2">
-                <div className="font-semibold text-xs text-brand-forest">02. Permanent Residence</div>
+              <div className="rounded-none border border-border/80 bg-card p-4 flex flex-col gap-2">
+                <div className="font-mono font-semibold text-xs text-secondary">02. Permanent Residence</div>
                 <h4 className="font-heading text-sm font-semibold text-foreground">Domicile / PRC (Manipur)</h4>
                 <p className="text-xs text-muted-foreground leading-relaxed">
                   Essential for Ishan Uday and NEC Merit schemes. Domicile certificates must match the student&apos;s name and parents&apos; names exactly.
                 </p>
               </div>
 
-              <div className="rounded-lg border border-border/80 bg-card p-4 flex flex-col gap-2">
-                <div className="font-semibold text-xs text-amber-600">03. Aadhaar-Seeded Account</div>
+              <div className="rounded-none border border-border/80 bg-card p-4 flex flex-col gap-2">
+                <div className="font-mono font-semibold text-xs text-nordic-amber">03. Aadhaar-Seeded Account</div>
                 <h4 className="font-heading text-sm font-semibold text-foreground">Active DBT Bank Account</h4>
                 <p className="text-xs text-muted-foreground leading-relaxed">
                   The applicant&apos;s bank account must be linked to Aadhaar (NPCI mapping) for Direct Benefit Transfer disbursement.
                 </p>
               </div>
 
-              <div className="rounded-lg border border-border/80 bg-card p-4 flex flex-col gap-2">
-                <div className="font-semibold text-xs text-indigo-600">04. AISHE / UDISE Code</div>
+              <div className="rounded-none border border-border/80 bg-card p-4 flex flex-col gap-2">
+                <div className="font-mono font-semibold text-xs text-secondary">04. AISHE / UDISE Code</div>
                 <h4 className="font-heading text-sm font-semibold text-foreground">Registered Institute</h4>
                 <p className="text-xs text-muted-foreground leading-relaxed">
                   Confirm that your college or higher secondary school has an active Nodal Officer registered on the NSP portal for verification.
@@ -370,14 +370,14 @@ export default function ScholarshipsPage() {
         {/* Diaspora Mentoring & Safeguarding */}
         <section className="py-16 bg-background">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="rounded-2xl border border-border/80 bg-card p-8 sm:p-10 shadow-xs">
+            <div className="rounded-none border border-border/80 bg-card p-8 sm:p-10 shadow-xs">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                 <div className="lg:col-span-8 flex flex-col gap-4">
                   <div className="flex items-center gap-2">
-                    <Badge variant="outline" className="border-brand-blue/30 text-brand-blue text-xs font-medium">
+                    <Badge variant="outline" className="border-secondary/30 text-secondary text-xs font-medium rounded-none">
                       Proposed Mentorship Circle
                     </Badge>
-                    <span className="text-xs text-muted-foreground">Community Initiative</span>
+                    <span className="text-xs text-muted-foreground font-mono">Community Initiative</span>
                   </div>
 
                   <h2 className="font-heading text-2xl sm:text-3xl font-bold text-foreground">
@@ -388,8 +388,8 @@ export default function ScholarshipsPage() {
                     Higher education is about more than filling out scholarship forms. Our proposed mentor network connects aspiring college applicants with Manipuri researchers, software engineers, and civil service scholars who have navigated competitive admissions across India and abroad.
                   </p>
 
-                  <div className="rounded-lg border border-border/70 bg-muted/30 p-4 flex items-start gap-3">
-                    <ShieldCheck className="size-5 text-emerald-600 shrink-0 mt-0.5" />
+                  <div className="rounded-none border border-border/70 bg-muted/30 p-4 flex items-start gap-3">
+                    <ShieldCheck className="size-5 text-secondary shrink-0 mt-0.5" />
                     <div className="text-xs text-muted-foreground leading-relaxed">
                       <strong className="text-foreground block mb-0.5">Strict Child Safeguarding &amp; Screening Policy:</strong>
                       All volunteer mentors undergo identity and professional verification. In compliance with the Digital Personal Data Protection (DPDP) Act and international child safeguarding standards, all interactions with secondary school students are conducted as supervised group workshops with parental consent. Direct private unrecorded communication with minors is strictly prohibited.
@@ -399,13 +399,13 @@ export default function ScholarshipsPage() {
 
                 <div className="lg:col-span-4 flex flex-col gap-3">
                   <RegisterInterestDialog initialProgramType="DIASPORA_MENTOR">
-                    <Button size="lg" className="w-full bg-brand-navy hover:bg-brand-navy/90 text-white dark:bg-brand-blue dark:hover:bg-brand-blue/90 text-xs sm:text-sm font-medium py-3 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary disabled:opacity-50">
+                    <Button size="lg" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground text-xs sm:text-sm font-semibold py-3 rounded-none active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary disabled:opacity-50">
                       Volunteer as a Diaspora Mentor
                     </Button>
                   </RegisterInterestDialog>
 
                   <RegisterInterestDialog initialProgramType="FUTURE_LABS">
-                    <Button size="lg" variant="outline" className="w-full text-xs sm:text-sm font-medium py-3 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary disabled:opacity-50">
+                    <Button size="lg" variant="outline" className="w-full text-xs sm:text-sm font-semibold py-3 rounded-none active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary disabled:opacity-50">
                       Student / Parent Guidance Registration
                     </Button>
                   </RegisterInterestDialog>

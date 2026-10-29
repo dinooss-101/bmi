@@ -63,7 +63,7 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-40 w-full bg-background/95 backdrop-blur-md border-b border-border text-foreground shadow-none transition-colors">
-      <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-10 h-14 flex items-center justify-between gap-4">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 h-14 flex items-center justify-between gap-4">
         {/* Minimalist Logo Mark: Just BMI */}
         <Link
           href="/"
@@ -105,7 +105,7 @@ export function SiteHeader() {
             size="sm"
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
             aria-label="Toggle theme"
-            className="size-9 sm:size-8 p-0 rounded-none border border-border bg-card hover:bg-muted text-muted-foreground hover:text-foreground active:scale-95 focus-visible:outline-2 focus-visible:outline-secondary transition-colors"
+            className="size-11 sm:size-8 p-0 rounded-none border border-border bg-card hover:bg-muted text-muted-foreground hover:text-foreground active:scale-95 focus-visible:outline-2 focus-visible:outline-secondary transition-colors"
           >
             <Sun className="size-3.5 rotate-0 scale-100 motion-safe:transition-transform motion-reduce:transition-none duration-200 dark:-rotate-90 dark:scale-0 text-foreground" />
             <Moon className="absolute size-3.5 rotate-90 scale-0 motion-safe:transition-transform motion-reduce:transition-none duration-200 dark:rotate-0 dark:scale-100 text-foreground" />
@@ -119,7 +119,7 @@ export function SiteHeader() {
                   <Button
                     variant="outline"
                     size="sm"
-                    className="size-9 sm:size-8 p-0 rounded-none border border-border bg-card text-foreground hover:bg-muted active:scale-95 focus-visible:outline-2 focus-visible:outline-secondary"
+                    className="size-11 sm:size-8 p-0 rounded-none border border-border bg-card text-foreground hover:bg-muted active:scale-95 focus-visible:outline-2 focus-visible:outline-secondary"
                     aria-label="Open navigation menu"
                   >
                     <Menu className="size-4" />
@@ -128,7 +128,7 @@ export function SiteHeader() {
               />
               <SheetContent
                 side="right"
-                className="w-65 flex flex-col justify-between py-6 rounded-none bg-background border-l border-border text-foreground"
+                className="w-72 max-w-[85vw] flex flex-col justify-between py-6 rounded-none bg-background border-l border-border text-foreground"
               >
                 <div className="flex flex-col gap-6">
                   <SheetHeader className="text-left border-b border-border pb-3">
@@ -152,7 +152,7 @@ export function SiteHeader() {
                             handleNavClick(e, item.href)
                             setMobileOpen(false)
                           }}
-                          className={`px-4 py-2.5 text-xs font-medium transition-colors ${
+                          className={`px-4 py-3 min-h-[44px] flex items-center text-sm font-medium transition-colors ${
                             active
                               ? "bg-muted text-foreground font-semibold border-l-2 border-secondary"
                               : "text-muted-foreground hover:bg-muted/50 hover:text-foreground"

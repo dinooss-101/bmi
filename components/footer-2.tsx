@@ -23,7 +23,7 @@ export default function Footer() {
 
   return (
     <footer className="border-t border-border bg-card">
-      <div className="mx-auto max-w-5xl px-6 sm:px-8 lg:px-10 pt-16 pb-12">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 pt-12 sm:pt-16 pb-12">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-border/60">
           {/* Office of the Representative with Clean BMI Logo */}
           <div className="md:col-span-5 space-y-4">
@@ -70,7 +70,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-muted-foreground hover:text-foreground transition-colors"
+                    className="text-muted-foreground hover:text-foreground transition-colors inline-block py-1 text-xs"
                   >
                     {link.label}
                   </Link>
@@ -91,7 +91,7 @@ export default function Footer() {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-muted-foreground hover:text-foreground transition-colors"
+                    className="text-muted-foreground hover:text-foreground transition-colors inline-block py-1 text-xs"
                   >
                     {link.label}
                   </a>

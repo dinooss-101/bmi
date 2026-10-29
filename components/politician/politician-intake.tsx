@@ -17,10 +17,10 @@ export function PoliticianIntake() {
   }
 
   return (
-    <section className="border-b border-border bg-background py-20 sm:py-28 lg:py-32" id="constituent-desk">
-      <div className="mx-auto max-w-3xl px-6 sm:px-8">
-        <div className="text-center mb-12">
-          <h2 className="font-headline text-3xl sm:text-4xl font-semibold text-foreground tracking-tight">
+    <section className="border-b border-border bg-background py-14 sm:py-20 lg:py-28" id="constituent-desk">
+      <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-8 sm:mb-12">
+          <h2 className="font-headline text-2xl sm:text-4xl font-semibold text-foreground tracking-tight">
             Direct constituent desk.
           </h2>
           <p className="mt-3 text-sm sm:text-base text-muted-foreground leading-relaxed max-w-lg mx-auto">
@@ -38,7 +38,7 @@ export function PoliticianIntake() {
         </div>
 
         {/* Form Container with Single Containment Layer */}
-        <div className="border border-border bg-card p-6 sm:p-10 shadow-xs">
+        <div className="border border-border bg-card p-4 sm:p-10 shadow-xs">
           <div className="mb-4 inline-flex items-center gap-1.5 border border-border/80 bg-muted/40 px-2.5 py-1 text-[11px] font-medium text-muted-foreground">
             <span>Demonstration prototype · Client-side preview</span>
           </div>
@@ -76,7 +76,7 @@ export function PoliticianIntake() {
                     id="civic-cat"
                     value={category}
                     onChange={(e) => setCategory(e.target.value)}
-                    className="w-full border border-border bg-background px-3 py-2.5 text-xs text-foreground focus:outline-none focus:ring-1 focus:ring-secondary"
+                    className="w-full border border-border bg-background px-3 py-2.5 text-base sm:text-xs text-foreground focus:outline-none focus:ring-1 focus:ring-secondary"
                   >
                     <option value="drainage">Drainage &amp; Flood Mitigation</option>
                     <option value="education">School STEM &amp; Future Labs</option>
@@ -94,7 +94,7 @@ export function PoliticianIntake() {
                     id="civic-ward"
                     value={ward}
                     onChange={(e) => setWard(e.target.value)}
-                    className="w-full border border-border bg-background px-3 py-2.5 text-xs text-foreground focus:outline-none focus:ring-1 focus:ring-secondary"
+                    className="w-full border border-border bg-background px-3 py-2.5 text-base sm:text-xs text-foreground focus:outline-none focus:ring-1 focus:ring-secondary"
                   >
                     <option value="ward-1">Ward 1: Bazar Central</option>
                     <option value="ward-2">Ward 2: Chabung Company</option>
@@ -119,7 +119,7 @@ export function PoliticianIntake() {
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
                   placeholder="Describe the issue, physical landmarks, and estimated community impact..."
-                  className="w-full border border-border bg-background p-3 text-xs text-foreground placeholder:text-muted-foreground/75 focus:outline-none focus:ring-1 focus:ring-secondary"
+                  className="w-full border border-border bg-background p-3 text-base sm:text-xs text-foreground placeholder:text-muted-foreground/75 focus:outline-none focus:ring-1 focus:ring-secondary"
                 />
               </div>
 
@@ -170,13 +170,13 @@ export function PoliticianIntake() {
               </fieldset>
 
               {/* Submit */}
-              <div className="pt-3 flex items-center justify-between border-t border-border/40">
-                <span className="text-[11px] text-muted-foreground">
+              <div className="pt-3 flex flex-col-reverse sm:flex-row items-stretch sm:items-center justify-between gap-3 border-t border-border/40">
+                <span className="text-[11px] text-muted-foreground text-center sm:text-left">
                   Evaluated in local client session
                 </span>
                 <Button
                   type="submit"
-                  className="px-6 py-2.5 text-xs font-semibold flex items-center gap-2"
+                  className="px-6 py-2.5 min-h-[44px] text-xs font-semibold flex items-center justify-center gap-2 w-full sm:w-auto"
                 >
                   <span>Submit priority to desk</span>
                   <Send className="size-3.5" />

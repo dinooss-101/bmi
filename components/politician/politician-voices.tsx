@@ -22,10 +22,10 @@ export function PoliticianVoices() {
   ]
 
   return (
-    <section className="border-b border-border bg-background py-20 sm:py-28 lg:py-32" id="voices">
-      <div className="mx-auto max-w-5xl px-6 sm:px-8 lg:px-10">
-        <div className="max-w-2xl mb-12">
-          <h2 className="font-headline text-3xl sm:text-4xl font-semibold text-foreground tracking-tight">
+    <section className="border-b border-border bg-background py-14 sm:py-20 lg:py-28" id="voices">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+        <div className="max-w-2xl mb-8 sm:mb-12">
+          <h2 className="font-headline text-2xl sm:text-4xl font-semibold text-foreground tracking-tight">
             Heard from the wards.
           </h2>
           <p className="mt-3 text-sm sm:text-base text-muted-foreground leading-relaxed">
@@ -38,7 +38,7 @@ export function PoliticianVoices() {
           {voices.map((v) => (
             <div
               key={v.name}
-              className="flex flex-col justify-between border border-border bg-card p-6 sm:p-8"
+              className="flex flex-col justify-between border border-border bg-card p-5 sm:p-8"
             >
               <div>
                 <div className="flex items-center gap-3.5 mb-5">

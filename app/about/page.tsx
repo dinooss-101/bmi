@@ -13,33 +13,33 @@ import {
 
 export default function AboutPage() {
   return (
-    <div className="flex min-h-screen flex-col bg-background selection:bg-brand-blue selection:text-white">
+    <div className="flex min-h-screen flex-col bg-background selection:bg-secondary selection:text-secondary-foreground">
       <SiteHeader />
 
       <main className="flex-1">
         {/* Page Hero */}
-        <div className="bg-brand-navy text-white py-16 md:py-20 border-b border-border/20">
+        <div className="bg-primary text-primary-foreground py-12 sm:py-16 md:py-20 border-b border-border/20">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col gap-4 max-w-3xl">
               <Link
                 href="/"
-                className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-300 hover:text-white active:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white transition-colors w-fit"
+                className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary-foreground/80 hover:text-primary-foreground active:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary transition-colors w-fit"
               >
                 <ArrowLeft className="size-3.5" /> Back to Overview
               </Link>
 
               <div className="flex items-center gap-2">
-                <Badge variant="outline" className="border-white/30 bg-white/10 text-white text-xs font-medium">
+                <Badge variant="outline" className="border-primary-foreground/30 bg-primary-foreground/10 text-primary-foreground text-xs font-medium rounded-none">
                   Governance &amp; Compliance
                 </Badge>
-                <span className="text-xs text-slate-300">Statutory Transparency Record</span>
+                <span className="text-xs text-primary-foreground/80">Statutory Transparency Record</span>
               </div>
 
-              <h1 className="font-heading text-3xl sm:text-5xl font-bold tracking-tight text-white leading-tight">
+              <h1 className="font-heading text-3xl sm:text-5xl font-bold tracking-tight text-primary-foreground leading-tight">
                 About BETTER MAYANG IMPHAL
               </h1>
 
-              <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
+              <p className="text-sm sm:text-base text-primary-foreground/85 leading-relaxed">
                 Platform identity, operator disclosures, statutory boundaries, DPDP privacy policy, and public compliance standards for Mayang Imphal.
               </p>
             </div>
@@ -47,13 +47,13 @@ export default function AboutPage() {
         </div>
 
         {/* Quick Anchor Navigation */}
-        <div className="sticky top-16 z-30 border-b border-border/60 bg-background/95 backdrop-blur-sm py-3">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex items-center gap-6 overflow-x-auto text-xs font-medium text-muted-foreground">
-            <a href="#identity" className="hover:text-foreground active:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary shrink-0">Operator Identity</a>
-            <a href="#statutory" className="hover:text-foreground active:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary shrink-0">Statutory Boundaries</a>
-            <a href="#dpdp" className="hover:text-foreground active:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary shrink-0">DPDP Privacy &amp; Safeguarding</a>
-            <a href="#election" className="hover:text-foreground active:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary shrink-0">ECI Compliance</a>
-            <a href="#corrections" className="hover:text-foreground active:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary shrink-0">Corrections Policy</a>
+        <div className="sticky top-14 z-30 border-b border-border/60 bg-background/95 backdrop-blur-sm py-2 sm:py-3">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex items-center gap-4 sm:gap-6 overflow-x-auto text-xs font-medium text-muted-foreground">
+            <a href="#identity" className="hover:text-foreground active:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary shrink-0 min-h-[36px] flex items-center py-1">Operator Identity</a>
+            <a href="#statutory" className="hover:text-foreground active:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary shrink-0 min-h-[36px] flex items-center py-1">Statutory Boundaries</a>
+            <a href="#dpdp" className="hover:text-foreground active:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary shrink-0 min-h-[36px] flex items-center py-1">DPDP Privacy &amp; Safeguarding</a>
+            <a href="#election" className="hover:text-foreground active:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary shrink-0 min-h-[36px] flex items-center py-1">ECI Compliance</a>
+            <a href="#corrections" className="hover:text-foreground active:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary shrink-0 min-h-[36px] flex items-center py-1">Corrections Policy</a>
           </div>
         </div>
 
@@ -71,7 +71,7 @@ export default function AboutPage() {
                 <strong>BETTER MAYANG IMPHAL</strong> is established as a <strong>hybrid civic-advocacy and public-information platform</strong>. Its purpose is to connect the constituency development priorities of Mayang Imphal with future-ready opportunities in STEM education, international scholarships, and evidence-based urban planning.
               </p>
 
-              <div className="rounded-xl border border-amber-500/20 bg-amber-500/10 p-4 text-xs text-amber-900 dark:text-amber-200">
+              <div className="rounded-none border border-amber-500/30 bg-amber-500/10 p-4 text-xs text-amber-900 dark:text-amber-200">
                 <span className="font-semibold block mb-1">Clear Public Notice on Platform Standing:</span>
                 This website is <strong>not</strong> an official portal of the Government of Manipur, the Mayang Imphal Municipal Council, or any state department. It does not speak on behalf of statutory bodies and does not possess executive powers to sanction tenders, expend public revenue, or grant regulatory approvals.
               </div>
@@ -93,7 +93,7 @@ export default function AboutPage() {
         </section>
 
         {/* Section 2: Statutory Boundaries */}
-        <section id="statutory" className="py-14 bg-brand-mist/40 dark:bg-muted/10 border-b border-border/60">
+        <section id="statutory" className="py-14 bg-muted/30 border-b border-border/60">
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 flex flex-col gap-6">
             <div>
               <h2 className="font-heading text-2xl sm:text-3xl font-bold text-foreground">
@@ -107,8 +107,8 @@ export default function AboutPage() {
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
-                <div className="rounded-lg border border-border/80 bg-card p-4 flex flex-col gap-2">
-                  <div className="font-semibold text-xs text-brand-blue">
+                <div className="rounded-none border border-border/80 bg-card p-4 flex flex-col gap-2">
+                  <div className="font-semibold text-xs text-secondary">
                     Municipal Council (MIMC)
                   </div>
                   <p className="text-xs text-muted-foreground leading-relaxed">
@@ -116,8 +116,8 @@ export default function AboutPage() {
                   </p>
                 </div>
 
-                <div className="rounded-lg border border-border/80 bg-card p-4 flex flex-col gap-2">
-                  <div className="font-semibold text-xs text-brand-forest">
+                <div className="rounded-none border border-border/80 bg-card p-4 flex flex-col gap-2">
+                  <div className="font-semibold text-xs text-secondary">
                     State Government Departments
                   </div>
                   <p className="text-xs text-muted-foreground leading-relaxed">
@@ -125,8 +125,8 @@ export default function AboutPage() {
                   </p>
                 </div>
 
-                <div className="rounded-lg border border-border/80 bg-card p-4 flex flex-col gap-2">
-                  <div className="font-semibold text-xs text-indigo-600 dark:text-indigo-400">
+                <div className="rounded-none border border-border/80 bg-card p-4 flex flex-col gap-2">
+                  <div className="font-semibold text-xs text-secondary">
                     Legislative Representation
                   </div>
                   <p className="text-xs text-muted-foreground leading-relaxed">
@@ -157,8 +157,8 @@ export default function AboutPage() {
               </p>
 
               <div className="flex flex-col gap-3">
-                <div className="rounded-lg border border-border/70 bg-card p-4 flex items-start gap-3">
-                  <Lock className="size-4 text-brand-blue shrink-0 mt-0.5" />
+                <div className="rounded-none border border-border/70 bg-card p-4 flex items-start gap-3">
+                  <Lock className="size-4 text-secondary shrink-0 mt-0.5" />
                   <div>
                     <strong className="text-foreground text-xs block mb-0.5">Anonymous Civic Submissions:</strong>
                     <span className="text-xs text-muted-foreground">
@@ -167,8 +167,8 @@ export default function AboutPage() {
                   </div>
                 </div>
 
-                <div className="rounded-lg border border-border/70 bg-card p-4 flex items-start gap-3">
-                  <ShieldCheck className="size-4 text-emerald-600 shrink-0 mt-0.5" />
+                <div className="rounded-none border border-border/70 bg-card p-4 flex items-start gap-3">
+                  <ShieldCheck className="size-4 text-secondary shrink-0 mt-0.5" />
                   <div>
                     <strong className="text-foreground text-xs block mb-0.5">Mandatory Parental Consent for Minors:</strong>
                     <span className="text-xs text-muted-foreground">
@@ -177,8 +177,8 @@ export default function AboutPage() {
                   </div>
                 </div>
 
-                <div className="rounded-lg border border-border/70 bg-card p-4 flex items-start gap-3">
-                  <Scale className="size-4 text-indigo-600 shrink-0 mt-0.5" />
+                <div className="rounded-none border border-border/70 bg-card p-4 flex items-start gap-3">
+                  <Scale className="size-4 text-secondary shrink-0 mt-0.5" />
                   <div>
                     <strong className="text-foreground text-xs block mb-0.5">Screened Diaspora Mentorship Protocol:</strong>
                     <span className="text-xs text-muted-foreground">
@@ -192,7 +192,7 @@ export default function AboutPage() {
         </section>
 
         {/* Section 4: ECI Compliance */}
-        <section id="election" className="py-14 bg-brand-mist/40 dark:bg-muted/10 border-b border-border/60">
+        <section id="election" className="py-14 bg-muted/30 border-b border-border/60">
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 flex flex-col gap-6">
             <div>
               <h2 className="font-heading text-2xl sm:text-3xl font-bold text-foreground">
@@ -205,23 +205,23 @@ export default function AboutPage() {
                 To maintain complete integrity during and outside election cycles, BETTER MAYANG IMPHAL adheres strictly to Election Commission of India guidelines and the Model Code of Conduct (MCC):
               </p>
 
-              <div className="rounded-xl border border-border/80 bg-card p-5 flex flex-col gap-3">
+              <div className="rounded-none border border-border/80 bg-card p-5 flex flex-col gap-3">
                 <div className="flex items-start gap-2.5">
-                  <CheckCircle2 className="size-4 text-emerald-600 shrink-0 mt-0.5" />
+                  <CheckCircle2 className="size-4 text-secondary shrink-0 mt-0.5" />
                   <span className="text-xs">
                     <strong>Zero Public Fund Utilization:</strong> This website is hosted and developed without the use of Government of Manipur, Municipal Council, or legislative secretarial funds.
                   </span>
                 </div>
 
                 <div className="flex items-start gap-2.5">
-                  <CheckCircle2 className="size-4 text-emerald-600 shrink-0 mt-0.5" />
+                  <CheckCircle2 className="size-4 text-secondary shrink-0 mt-0.5" />
                   <span className="text-xs">
                     <strong>Model Code of Conduct Neutrality:</strong> During any notified election period, no newly announced government works or policy decisions will be represented as completed achievements, and official government machinery will not be utilized for platform activities.
                   </span>
                 </div>
 
                 <div className="flex items-start gap-2.5">
-                  <CheckCircle2 className="size-4 text-emerald-600 shrink-0 mt-0.5" />
+                  <CheckCircle2 className="size-4 text-secondary shrink-0 mt-0.5" />
                   <span className="text-xs">
                     <strong>Transparent Attribution:</strong> The operators of this platform do not falsely claim non-partisan NGO status while operating political platforms; conversely, civic public-interest documents are maintained with strict factual neutrality.
                   </span>
@@ -245,7 +245,7 @@ export default function AboutPage() {
                 We welcome scrutiny. If you are an engineer, government officer, municipal councilor, or resident with updated documentation (work order, revised tender date, or gazette notification) that differs from what is published here, we commit to reviewing and updating the record promptly.
               </p>
 
-              <div className="rounded-lg border border-border/80 bg-muted/20 p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div className="rounded-none border border-border/80 bg-muted/20 p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
                   <div className="font-semibold text-foreground text-sm">Submit Official Documentation or Corrections</div>
                   <div className="text-xs text-muted-foreground mt-0.5">
@@ -255,7 +255,7 @@ export default function AboutPage() {
 
                 <Link
                   href="/#constituent-desk"
-                  className="inline-flex shrink-0 items-center justify-center rounded-md bg-brand-navy text-white hover:bg-brand-navy/90 dark:bg-brand-blue dark:hover:bg-brand-blue/90 px-4 py-2 text-xs font-semibold active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary"
+                  className="inline-flex shrink-0 items-center justify-center rounded-none bg-primary text-primary-foreground hover:bg-primary/90 px-4 py-2 text-xs font-semibold active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary"
                 >
                   Submit Evidence Note
                 </Link>
