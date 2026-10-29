@@ -35,7 +35,7 @@ import {
 export default function ScholarshipsPage() {
   const [searchQuery, setSearchQuery] = useState("")
   const [selectedCycle, setSelectedCycle] = useState<string>("ALL")
-  const [selectedLevel, setSelectedLevel] = useState<string>("ALL")
+  const [selectedLevel, setSelectedLevel] = useState<ScholarshipLevel | "ALL">("ALL")
   const [copied, setCopied] = useState(false)
 
   const cycleLabels: Record<string, string> = {
@@ -44,11 +44,12 @@ export default function ScholarshipsPage() {
     RENEWAL: "Renewal Applications Only",
   }
 
-  const levelLabels: Record<string, string> = {
+  const levelLabels: Record<ScholarshipLevel | "ALL", string> = {
     ALL: "All Academic Levels",
     HIGHER_SECONDARY: "Class 11 & 12 (Higher Secondary)",
     UNDERGRADUATE: "Undergraduate / Degree Courses",
     POSTGRADUATE: "Postgraduate / Master's Courses",
+    RESEARCH_FELLOWSHIP: "Research / Ph.D. Fellowship",
   }
 
   const filteredScholarships = useMemo(() => {
@@ -63,7 +64,7 @@ export default function ScholarshipsPage() {
       if (selectedLevel !== "ALL") {
         const matchesLevel =
           scheme.level === selectedLevel ||
-          (scheme.levels && scheme.levels.includes(selectedLevel as ScholarshipLevel))
+          Boolean(scheme.levels?.includes(selectedLevel))
         if (!matchesLevel) return false
       }
 
@@ -208,7 +209,7 @@ export default function ScholarshipsPage() {
                       <DropdownMenuLabel className="text-xs font-semibold text-muted-foreground">
                         Filter by Study Level
                       </DropdownMenuLabel>
-                      {Object.entries(levelLabels).map(([key, label]) => (
+                      {(Object.entries(levelLabels) as [ScholarshipLevel | "ALL", string][]).map(([key, label]) => (
                         <DropdownMenuItem
                           key={key}
                           onClick={() => setSelectedLevel(key)}
