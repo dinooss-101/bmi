@@ -1,19 +1,56 @@
-import { Button } from "@/components/ui/button"
+import React from "react"
+import type { Metadata } from "next"
+import { SiteHeader } from "@/components/site-header"
+import HeroSection from "@/components/hero-section-8"
+import LogoCloud from "@/components/logo-cloud-3"
+import { PoliticianStatement } from "@/components/politician/politician-statement"
+import { PoliticianGallery } from "@/components/politician/politician-gallery"
+import { PoliticianPillars } from "@/components/politician/politician-pillars"
+import { PoliticianLedger } from "@/components/politician/politician-ledger"
+import { PoliticianVoices } from "@/components/politician/politician-voices"
+import { PoliticianIntake } from "@/components/politician/politician-intake"
+import FAQs from "@/components/faqs-1"
+import Footer from "@/components/footer-2"
 
-export default function Page() {
+export const metadata: Metadata = {
+  title: "Better Mayang Imphal · Civic Leadership Platform (2027)",
+  description:
+    "Official constituent platform for Mayang Imphal: transparent governance, statutory GIS Master Plan 2045, STEM future labs, and decoupled public accountability.",
+}
+
+export default function HomePage() {
   return (
-    <div className="flex min-h-svh p-6">
-      <div className="flex max-w-md min-w-0 flex-col gap-4 text-sm leading-loose">
-        <div>
-          <h1 className="font-medium">Project ready!</h1>
-          <p>You may now add components and start building.</p>
-          <p>We&apos;ve already added the button component for you.</p>
-          <Button className="mt-2">Button</Button>
-        </div>
-        <div className="font-mono text-xs text-muted-foreground">
-          (Press <kbd>d</kbd> to toggle dark mode)
-        </div>
-      </div>
+    <div className="min-h-screen bg-background text-foreground selection:bg-secondary selection:text-secondary-foreground">
+      <SiteHeader />
+      <main>
+        {/* 1. Politician Hero: Spacious, Visual & Clear Mandate */}
+        <HeroSection />
+
+        {/* 2. Statutory Frameworks & Institutional Alignment */}
+        <LogoCloud />
+
+        {/* 3. The Mandate: Personal Statement & Portrait */}
+        <PoliticianStatement />
+
+        {/* 4. In the Community: Tabbed Photojournalism Field Journal */}
+        <PoliticianGallery />
+
+        {/* 5. Three Core Pillars: Flagship Policies with Large Photo Placeholders */}
+        <PoliticianPillars />
+
+        {/* 6. Decoupled Accountability: Bold Metrics & Ground Verification */}
+        <PoliticianLedger />
+
+        {/* 7. Community Voices: Spacious Constituent Endorsements */}
+        <PoliticianVoices />
+
+        {/* 8. Direct Answers to Common Questions */}
+        <FAQs />
+
+        {/* 9. Direct Constituent Desk: Citizen Priority Intake */}
+        <PoliticianIntake />
+      </main>
+      <Footer />
     </div>
   )
 }

@@ -1,12 +1,18 @@
-import { Geist, Geist_Mono, Inter, Playfair_Display } from "next/font/google"
+import { Public_Sans, Source_Serif_4, Geist_Mono } from "next/font/google"
 
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils"
 
-const playfairDisplayHeading = Playfair_Display({subsets:['latin'],variable:'--font-heading'});
+const sourceSerif4 = Source_Serif_4({
+  subsets: ["latin"],
+  variable: "--font-headline",
+})
 
-const inter = Inter({subsets:['latin'],variable:'--font-sans'})
+const publicSans = Public_Sans({
+  subsets: ["latin"],
+  variable: "--font-body",
+})
 
 const fontMono = Geist_Mono({
   subsets: ["latin"],
@@ -22,9 +28,9 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={cn("antialiased", fontMono.variable, "font-sans", inter.variable, playfairDisplayHeading.variable)}
+      className={cn("antialiased", fontMono.variable, publicSans.variable, sourceSerif4.variable, "font-body")}
     >
-      <body>
+      <body className="bg-surface font-body text-[15px] leading-relaxed text-on-surface antialiased">
         <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
