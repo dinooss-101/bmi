@@ -144,7 +144,7 @@ export function SiteHeader() {
               />
               <SheetContent
                 side="right"
-                className="w-[260px] flex flex-col justify-between py-6 rounded-none bg-background border-l border-border text-foreground"
+                className="w-65 flex flex-col justify-between py-6 rounded-none bg-background border-l border-border text-foreground"
               >
                 <div className="flex flex-col gap-6">
                   <SheetHeader className="text-left border-b border-border pb-3">

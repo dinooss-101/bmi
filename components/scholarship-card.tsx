@@ -7,14 +7,17 @@ interface ScholarshipCardProps {
   scholarship: ScholarshipScheme
 }
 
-function isDeadlineClosingSoon(deadline: string | undefined, now: number): boolean {
+// Captured once at module load — stable across re-renders (7-day window, staleness is irrelevant)
+const NOW = Date.now()
+
+function isDeadlineClosingSoon(deadline: string | undefined): boolean {
   if (!deadline) return false
-  const diff = new Date(deadline).getTime() - now
+  const diff = new Date(deadline).getTime() - NOW
   return diff > 0 && diff < 7 * 24 * 60 * 60 * 1000
 }
 
 export function ScholarshipCard({ scholarship }: ScholarshipCardProps) {
-  const isClosingSoon = isDeadlineClosingSoon(scholarship.studentDeadline, Date.now())
+  const isClosingSoon = isDeadlineClosingSoon(scholarship.studentDeadline)
 
   return (
     <Card className="flex flex-col justify-between border-border/80 bg-card/90 transition-shadow hover:shadow-sm">
