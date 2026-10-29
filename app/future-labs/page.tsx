@@ -56,13 +56,13 @@ export default function FutureLabsPage() {
 
               <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto">
                 <RegisterInterestDialog initialProgramType="FUTURE_LABS">
-                  <Button className="rounded-none bg-secondary hover:bg-secondary/90 text-secondary-foreground text-xs sm:text-sm font-semibold min-h-[44px] justify-center active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary disabled:opacity-50">
+                  <Button className="rounded-none bg-secondary hover:bg-secondary/90 text-secondary-foreground text-xs sm:text-sm font-semibold min-h-11 justify-center active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary disabled:opacity-50">
                     Register Interest (Student / Teacher / Mentor)
                   </Button>
                 </RegisterInterestDialog>
                 <a
                   href="#roadmap"
-                  className="inline-flex items-center justify-center gap-1.5 text-xs text-primary-foreground/80 hover:text-primary-foreground active:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary py-2.5 px-3 min-h-[44px] border border-primary-foreground/30 rounded-none transition-colors"
+                  className="inline-flex items-center justify-center gap-1.5 text-xs text-primary-foreground/80 hover:text-primary-foreground active:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary py-2.5 px-3 min-h-11 border border-primary-foreground/30 rounded-none transition-colors"
                 >
                   <span>View 5-Stage Roadmap</span>
                   <ArrowRight className="size-3" />
@@ -122,7 +122,7 @@ export default function FutureLabsPage() {
               <div className="mb-8 w-full overflow-x-auto pb-1">
                 <TabsList className="bg-muted p-1 rounded-none flex flex-nowrap w-max gap-1 h-auto">
                   {futureLabsTracks.map((t) => (
-                    <TabsTrigger key={t.id} value={t.id} className="text-xs sm:text-sm px-4 py-2 min-h-[40px] sm:min-h-0 rounded-none shrink-0">
+                    <TabsTrigger key={t.id} value={t.id} className="text-xs sm:text-sm px-4 py-2 min-h-10 sm:min-h-0 rounded-none shrink-0">
                       {t.title}
                     </TabsTrigger>
                   ))}

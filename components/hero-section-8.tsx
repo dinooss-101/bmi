@@ -51,14 +51,14 @@ export default function HeroSection() {
             <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 w-full sm:w-auto">
               <Link
                 href="#mandate"
-                className="group inline-flex items-center justify-center gap-2.5 bg-primary px-7 py-3.5 min-h-[48px] text-sm font-semibold tracking-wide text-primary-foreground transition-all hover:bg-primary/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary"
+                className="group inline-flex items-center justify-center gap-2.5 bg-primary px-7 py-3.5 min-h-12 text-sm font-semibold tracking-wide text-primary-foreground transition-all hover:bg-primary/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary"
               >
                 <span>Read the civic mandate</span>
                 <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
               </Link>
               <Link
                 href="#constituent-desk"
-                className="inline-flex items-center justify-center gap-2 border border-border/90 bg-card px-7 py-3.5 min-h-[48px] text-sm font-semibold tracking-wide text-foreground transition-colors hover:bg-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary"
+                className="inline-flex items-center justify-center gap-2 border border-border/90 bg-card px-7 py-3.5 min-h-12 text-sm font-semibold tracking-wide text-foreground transition-colors hover:bg-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary"
               >
                 <span>Direct constituent desk</span>
               </Link>
@@ -83,7 +83,7 @@ export default function HeroSection() {
 
           {/* Right Column: Properly Sized Campaign Poster Frame */}
           <div className="lg:col-span-5">
-            <div className="relative mx-auto max-w-[280px] sm:max-w-sm border border-border bg-card p-3 shadow-xs">
+            <div className="relative mx-auto max-w-70 sm:max-w-sm border border-border bg-card p-3 shadow-xs">
               <span className="pointer-events-none absolute -top-1 -left-1 size-2 border-t-2 border-l-2 border-primary" />
               <span className="pointer-events-none absolute -top-1 -right-1 size-2 border-t-2 border-r-2 border-primary" />
               <span className="pointer-events-none absolute -bottom-1 -left-1 size-2 border-b-2 border-l-2 border-primary" />
