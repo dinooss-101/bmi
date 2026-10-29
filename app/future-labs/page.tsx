@@ -40,7 +40,7 @@ export default function FutureLabsPage() {
               </Link>
 
               <div className="flex items-center gap-2">
-                <Badge variant="outline" className="rounded-none border-nordic-amber/40 bg-nordic-amber/10 text-nordic-amber text-xs font-medium">
+                <Badge variant="outline" className="rounded-none border-primary-foreground/30 bg-primary-foreground/10 text-primary-foreground text-xs font-medium">
                   Proposed initiative · In assessment
                 </Badge>
                 <span className="text-xs text-primary-foreground/80">Phase 1 Feasibility Study</span>
@@ -119,13 +119,15 @@ export default function FutureLabsPage() {
             </div>
 
             <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-              <TabsList className="bg-muted p-1 rounded-none mb-8 flex flex-wrap sm:flex-nowrap overflow-x-auto gap-1">
-                {futureLabsTracks.map((t) => (
-                  <TabsTrigger key={t.id} value={t.id} className="text-xs sm:text-sm px-4 py-2 min-h-[40px] sm:min-h-0 rounded-none">
-                    {t.title}
-                  </TabsTrigger>
-                ))}
-              </TabsList>
+              <div className="mb-8 w-full overflow-x-auto pb-1">
+                <TabsList className="bg-muted p-1 rounded-none flex flex-nowrap w-max gap-1 h-auto">
+                  {futureLabsTracks.map((t) => (
+                    <TabsTrigger key={t.id} value={t.id} className="text-xs sm:text-sm px-4 py-2 min-h-[40px] sm:min-h-0 rounded-none shrink-0">
+                      {t.title}
+                    </TabsTrigger>
+                  ))}
+                </TabsList>
+              </div>
 
               {futureLabsTracks.map((t) => (
                 <TabsContent key={t.id} value={t.id} className="focus-visible:outline-none">
