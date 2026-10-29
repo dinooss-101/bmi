@@ -1,18 +1,29 @@
 "use client"
 
 /**
- * @author: @dorianbaffier
- * @description: Typewriter
- * @version: 1.1.0
- * @date: 2026-10-14
- * @license: MIT
- * @website: https://kokonutui.com
- * @github: https://github.com/kokonut-labs/kokonutui
+ * @description: TypewriterTitle - robust cross-platform typewriter
+ * Supports iOS WebKit (Safari/Chrome), desktop browsers, reduced motion controls,
+ * visibility tracking, and zero layout shift.
  */
 
-import { motion, useInView, useReducedMotion } from "motion/react"
-import { type Ref, useEffect, useRef, useState } from "react"
+import { type Ref, useEffect, useRef, useState, useSyncExternalStore } from "react"
 import { cn } from "@/lib/utils"
+
+function subscribeReducedMotion(callback: () => void) {
+  if (typeof window === "undefined") return () => {}
+  const media = window.matchMedia("(prefers-reduced-motion: reduce)")
+  media.addEventListener("change", callback)
+  return () => media.removeEventListener("change", callback)
+}
+
+function getReducedMotionSnapshot() {
+  if (typeof window === "undefined") return false
+  return window.matchMedia("(prefers-reduced-motion: reduce)").matches
+}
+
+function getReducedMotionServerSnapshot() {
+  return false
+}
 
 export interface TypewriterSequence {
   text: string
@@ -49,6 +60,11 @@ export interface TypewriterTitleProps {
    * stop the endless loop (WCAG 2.2.2). It also pauses while off screen.
    */
   paused?: boolean
+  /**
+   * Whether to freeze animation if OS has reduced motion enabled.
+   * Defaults to false so headline remains animated across mobile devices.
+   */
+  respectReducedMotion?: boolean
   /** Element to render, e.g. `h1` when it is the page title. */
   as?: TypewriterElement
   /** Classes for the wrapper. Its width sets the font size. */
@@ -74,11 +90,6 @@ const DEFAULT_TYPO_RATE = 0.04
 // for a moment, then the text is cut.
 const SELECT_SWEEP_MS = 120
 const SELECT_HOLD_MS = 220
-
-// The blink is a CSS animation so it runs off the main thread: solid for
-// the first third of the cycle, fades out, then stays hidden.
-const CARET_KEYFRAMES =
-  "@keyframes kokonutui-typewriter-caret { 0%, 33.333% { opacity: 1; } 66.667%, 100% { opacity: 0; } }"
 
 const KEY_ROWS = ["qwertyuiop", "asdfghjkl", "zxcvbnm"]
 
@@ -157,18 +168,58 @@ export default function TypewriterTitle({
   typos = false,
   seed = 7,
   paused = false,
+  respectReducedMotion = false,
   as: Component = "div",
   className,
   textClassName,
 }: TypewriterTitleProps) {
   const [screen, setScreen] = useState<Screen>({ text: "", selected: 0 })
+  const [isInView, setIsInView] = useState(true)
+  const [isVisible, setIsVisible] = useState(true)
+
+  const prefersReducedMotion = useSyncExternalStore(
+    subscribeReducedMotion,
+    getReducedMotionSnapshot,
+    getReducedMotionServerSnapshot
+  )
+  const shouldReduceMotion = respectReducedMotion && prefersReducedMotion
+
   const ref = useRef<HTMLSpanElement>(null)
   const caretRef = useRef<HTMLSpanElement>(null)
-  const isInView = useInView(ref)
-  const isRunning = !paused && isInView
-  const shouldReduceMotion = useReducedMotion()
   const position = useRef<Position>({ sequence: 0, char: 0, deleting: false })
   const random = useRef<() => number>(createRandom(seed))
+
+  // Viewport intersection and tab visibility detection (resilient for iOS WebKit)
+  useEffect(() => {
+    if (typeof window === "undefined") return
+
+    const handleVisibility = () => {
+      setIsVisible(document.visibilityState !== "hidden")
+    }
+    document.addEventListener("visibilitychange", handleVisibility)
+
+    const el = ref.current
+    let observer: IntersectionObserver | null = null
+    if (el && typeof IntersectionObserver !== "undefined") {
+      observer = new IntersectionObserver(
+        (entries) => {
+          const entry = entries[0]
+          if (entry) {
+            setIsInView(entry.isIntersecting)
+          }
+        },
+        { rootMargin: "150px 0px", threshold: 0 }
+      )
+      observer.observe(el)
+    }
+
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibility)
+      observer?.disconnect()
+    }
+  }, [])
+
+  const isRunning = !paused && isInView && isVisible
 
   const sequencesRef = useRef(sequences)
   useEffect(() => {
@@ -179,15 +230,15 @@ export default function TypewriterTitle({
     random.current = createRandom(seed)
   }, [seed])
 
-  // Reduced motion: show the final phrase, no typing loop.
+  // Reduced motion fallback: show the final phrase statically if requested
   const finalText = sequences.at(-1)?.text ?? ""
 
   useEffect(() => {
     if (shouldReduceMotion) {
       return
     }
-    // Paused or off screen: keep the current text. `position` remembers
-    // where it was, so typing resumes there.
+
+    // Paused, off-screen, or hidden tab: keep current text. Position remembers where it was.
     if (!isRunning) {
       return
     }
@@ -220,18 +271,17 @@ export default function TypewriterTitle({
         timers.add(timer)
       })
 
-    // Every keystroke holds the caret solid; it blinks again once idle.
+    // Keystroke holds caret solid; blinks again once idle
     const keystroke = () => {
       const caret = caretRef.current
-      if (!caret) {
-        return
-      }
+      if (!caret) return
       caret.dataset.idle = "false"
       clearTimeout(idleTimer)
       idleTimer = setTimeout(() => {
         caret.dataset.idle = "true"
       }, CARET_IDLE_MS)
     }
+
     const show = (text: string, selected = 0) => {
       setScreen({ text, selected })
     }
@@ -239,8 +289,7 @@ export default function TypewriterTitle({
     const typeChar = async (text: string) => {
       const wrongKeys = neighbours(text[pos.char])
       if (wrongKeys && random.current() < typoRate) {
-        const wrong =
-          wrongKeys[Math.floor(random.current() * wrongKeys.length)]
+        const wrong = wrongKeys[Math.floor(random.current() * wrongKeys.length)]
         show(text.slice(0, pos.char) + wrong)
         keystroke()
         await wait(TYPO_NOTICE_MS + typingSpeed)
@@ -283,7 +332,6 @@ export default function TypewriterTitle({
       if (isLast && !autoLoop) {
         return false
       }
-      // Advance first, so pausing during the wait can't retype this one.
       pos.sequence = isLast ? 0 : pos.sequence + 1
       pos.char = 0
       pos.deleting = false
@@ -294,7 +342,6 @@ export default function TypewriterTitle({
 
     const phrase = async () => {
       const list = sequencesRef.current
-      // `sequences` may have shrunk past the current phrase: start over.
       if (pos.sequence >= list.length) {
         pos.sequence = 0
         pos.char = 0
@@ -306,7 +353,6 @@ export default function TypewriterTitle({
       }
       const { text } = sequence
       pos.char = Math.min(pos.char, text.length)
-      // Resuming after a pause: put the screen back in step.
       show(text.slice(0, pos.char))
 
       if (!pos.deleting) {
@@ -315,7 +361,6 @@ export default function TypewriterTitle({
         }
         const pause = sequence.pauseAfter ?? pauseBeforeDelete
         const isLast = pos.sequence === list.length - 1
-        // Looping deletes the last phrase too, instead of it vanishing.
         if (!(sequence.deleteAfter || (isLast && autoLoop))) {
           return advance(pause)
         }
@@ -330,7 +375,7 @@ export default function TypewriterTitle({
       try {
         await wait(startDelay)
         while (await phrase()) {
-          // On to the next phrase.
+          // loop continues
         }
       } catch (error) {
         if (!(error instanceof Stopped)) {
@@ -371,36 +416,21 @@ export default function TypewriterTitle({
   const selected = displayText.slice(kept.length)
 
   return (
-    <Component
-      className={cn(
-        "inline-flex items-center tracking-tight",
-        className
-      )}
-    >
-      <style href="kokonutui-type-writer" precedence="default">
-        {CARET_KEYFRAMES}
-      </style>
-      {/* Screen readers get every phrase once instead of whatever partial
-          string is on screen. */}
+    <Component className={cn("inline-flex items-center tracking-tight", className)}>
+      {/* Screen readers receive full text list for accessibility */}
       <span className="sr-only">
         {sequences.map((sequence) => sequence.text).join(", ")}
       </span>
-      <motion.span
-        animate={{ opacity: 1 }}
+      <span
+        ref={ref}
         aria-hidden="true"
         className={cn(
           "inline-grid justify-items-start whitespace-pre pr-[0.25em] leading-[1.15]",
           textClassName
         )}
-        initial={{ opacity: 0 }}
-        ref={ref}
-        transition={{ duration: 0.5 }}
       >
         {sequences.map((sequence, index) => (
-          <span
-            className="invisible col-start-1 row-start-1"
-            key={index}
-          >
+          <span className="invisible col-start-1 row-start-1" key={index}>
             {sequence.text}
           </span>
         ))}
@@ -413,14 +443,13 @@ export default function TypewriterTitle({
             </span>
           )}
         </span>
-      </motion.span>
+      </span>
     </Component>
   )
 }
 
 /**
- * Takes no room, so the text never shifts when the caret moves to the start
- * of a selection. Solid while typing; blinks once idle.
+ * Solid while typing; blinks once idle via CSS keyframes in globals.css.
  */
 function Caret({ caretRef }: { caretRef: Ref<HTMLSpanElement> }) {
   return (
