@@ -1,4 +1,3 @@
-import React from "react"
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { ScholarshipScheme } from "@/lib/types/scholarship"
@@ -8,14 +7,14 @@ interface ScholarshipCardProps {
   scholarship: ScholarshipScheme
 }
 
+function isDeadlineClosingSoon(deadline: string | undefined, now: number): boolean {
+  if (!deadline) return false
+  const diff = new Date(deadline).getTime() - now
+  return diff > 0 && diff < 7 * 24 * 60 * 60 * 1000
+}
+
 export function ScholarshipCard({ scholarship }: ScholarshipCardProps) {
-  const isClosingSoon = React.useMemo(() => {
-    if (!scholarship.studentDeadline) return false
-    const deadlineTime = new Date(scholarship.studentDeadline).getTime()
-    const now = Date.now()
-    const diff = deadlineTime - now
-    return diff > 0 && diff < 7 * 24 * 60 * 60 * 1000
-  }, [scholarship.studentDeadline])
+  const isClosingSoon = isDeadlineClosingSoon(scholarship.studentDeadline, Date.now())
 
   return (
     <Card className="flex flex-col justify-between border-border/80 bg-card/90 transition-shadow hover:shadow-sm">
@@ -89,7 +88,7 @@ export function ScholarshipCard({ scholarship }: ScholarshipCardProps) {
             <ShieldCheck className="size-3.5 text-emerald-600" />
             Verified on NSP: {scholarship.lastVerifiedAt}
           </span>
-          <span className="truncate max-w-[150px]">{scholarship.targetGroup}</span>
+          <span className="truncate max-w-37.5">{scholarship.targetGroup}</span>
         </div>
 
         <a
