@@ -7,7 +7,7 @@ interface ScholarshipCardProps {
   scholarship: ScholarshipScheme
 }
 
-// Captured once at module load — stable across re-renders (7-day window, staleness is irrelevant)
+// Captured once at module load - stable across re-renders (7-day window, staleness is irrelevant)
 const NOW = Date.now()
 
 function isDeadlineClosingSoon(deadline: string | undefined): boolean {
@@ -23,7 +23,7 @@ export function ScholarshipCard({ scholarship }: ScholarshipCardProps) {
     <Card className="flex flex-col justify-between border-border/80 bg-card/90 transition-shadow hover:shadow-sm">
       <CardHeader className="flex flex-col gap-2.5 pb-3">
         <div className="flex flex-wrap items-center justify-between gap-2">
-          <Badge variant="outline" className="text-[11px] font-semibold text-brand-blue">
+          <Badge variant="outline" className="text-[11px] font-semibold text-secondary">
             AY {scholarship.academicYear}
           </Badge>
           <div className="flex items-center gap-1.5">
@@ -49,7 +49,7 @@ export function ScholarshipCard({ scholarship }: ScholarshipCardProps) {
           {scholarship.name}
         </CardTitle>
 
-        <CardDescription className="text-xs font-medium text-brand-forest dark:text-emerald-400">
+        <CardDescription className="text-xs font-medium text-secondary dark:text-emerald-400">
           Official Sponsor: {scholarship.officialSponsor}
         </CardDescription>
       </CardHeader>
@@ -65,10 +65,10 @@ export function ScholarshipCard({ scholarship }: ScholarshipCardProps) {
           </p>
         )}
 
-        <div className="flex flex-col gap-1.5 rounded-md border border-border/60 bg-muted/30 p-2.5 text-xs">
+        <div className="flex flex-col gap-1.5 rounded-none border border-border/60 bg-muted/30 p-2.5 text-xs">
           <div className="flex items-center justify-between">
             <span className="flex items-center gap-1.5 text-muted-foreground">
-              <Calendar className="size-3.5 text-brand-blue" />
+              <Calendar className="size-3.5 text-secondary" />
               Student Application Deadline:
             </span>
             <span className={`font-mono font-medium ${isClosingSoon ? "text-amber-700 dark:text-amber-400" : "text-foreground"}`}>
@@ -98,7 +98,7 @@ export function ScholarshipCard({ scholarship }: ScholarshipCardProps) {
           href={scholarship.officialApplicationUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex w-full items-center justify-center gap-1.5 rounded-md bg-primary py-2 text-xs font-medium text-primary-foreground hover:bg-primary/90"
+          className="inline-flex w-full items-center justify-center gap-1.5 rounded-none bg-primary py-2.5 min-h-[44px] text-xs font-medium text-primary-foreground hover:bg-primary/90"
         >
           Apply via Official Portal <ExternalLink className="size-3.5" />
         </a>

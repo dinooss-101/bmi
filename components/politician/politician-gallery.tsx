@@ -6,11 +6,11 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
 
 export function PoliticianGallery() {
   return (
-    <section className="border-b border-border bg-background py-20 sm:py-28 lg:py-32" id="community-action">
-      <div className="mx-auto max-w-5xl px-6 sm:px-8 lg:px-10">
+    <section className="border-b border-border bg-background py-14 sm:py-20 lg:py-28" id="community-action">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         {/* Header with Generous Negative Space */}
-        <div className="max-w-2xl mb-12">
-          <h2 className="font-headline text-3xl sm:text-4xl font-semibold text-foreground tracking-tight">
+        <div className="max-w-2xl mb-8 sm:mb-12">
+          <h2 className="font-headline text-2xl sm:text-4xl font-semibold text-foreground tracking-tight">
             Everyday work across all six wards.
           </h2>
           <p className="mt-3 text-sm sm:text-base text-muted-foreground leading-relaxed">
@@ -20,19 +20,19 @@ export function PoliticianGallery() {
 
         {/* Tabbed Photojournalism for Generous Spacing & No Overcrowding */}
         <Tabs defaultValue="consultations" className="w-full">
-          <div className="mb-8 flex items-center justify-between border-b border-border pb-3">
-            <TabsList className="bg-muted/40 p-1 border border-border/60">
-              <TabsTrigger value="consultations" className="text-xs px-3.5 py-1.5">
+          <div className="mb-8 flex items-center justify-between border-b border-border pb-3 gap-2 overflow-x-auto">
+            <TabsList className="bg-muted/40 p-1 border border-border/60 w-max shrink-0">
+              <TabsTrigger value="consultations" className="text-xs px-3 py-1.5 min-h-[36px] sm:min-h-0">
                 Citizen consultations
               </TabsTrigger>
-              <TabsTrigger value="infrastructure" className="text-xs px-3.5 py-1.5">
+              <TabsTrigger value="infrastructure" className="text-xs px-3 py-1.5 min-h-[36px] sm:min-h-0">
                 Public works &amp; ecology
               </TabsTrigger>
-              <TabsTrigger value="youth" className="text-xs px-3.5 py-1.5">
+              <TabsTrigger value="youth" className="text-xs px-3 py-1.5 min-h-[36px] sm:min-h-0">
                 Youth &amp; open office
               </TabsTrigger>
             </TabsList>
-            <span className="hidden sm:inline-block text-xs text-muted-foreground">
+            <span className="hidden sm:inline-block text-xs text-muted-foreground shrink-0">
               6 Documented Deployments
             </span>
           </div>

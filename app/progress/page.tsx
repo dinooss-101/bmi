@@ -88,50 +88,50 @@ export default function ProgressPage() {
       setCopied(true)
       setTimeout(() => setCopied(false), 2500)
     } catch {
-      // clipboard unavailable or denied — silently ignore
+      // clipboard unavailable or denied - silently ignore
     }
   }
 
   return (
-    <div className="flex min-h-screen flex-col bg-background selection:bg-brand-blue selection:text-white">
+    <div className="flex min-h-screen flex-col bg-background selection:bg-secondary selection:text-secondary-foreground">
       <SiteHeader />
 
       <main className="flex-1">
         {/* Page Hero */}
-        <div className="bg-brand-navy text-white py-16 md:py-20 border-b border-border/20">
+        <div className="bg-primary text-primary-foreground py-12 sm:py-16 md:py-20 border-b border-border/20">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col gap-4 max-w-3xl">
               <Link
                 href="/"
-                className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-300 hover:text-white active:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white transition-colors w-fit"
+                className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary-foreground/80 hover:text-primary-foreground active:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary transition-colors w-fit"
               >
                 <ArrowLeft className="size-3.5" /> Back to Overview
               </Link>
 
               <div className="flex items-center gap-2">
-                <Badge variant="outline" className="border-indigo-400/40 bg-indigo-400/10 text-indigo-300 text-xs font-medium">
+                <Badge variant="outline" className="rounded-none border-primary-foreground/30 bg-primary-foreground/10 text-primary-foreground text-xs font-medium">
                   Public Transparency
                 </Badge>
-                <span className="text-xs text-slate-300">Two-Dimensional Evidence Model</span>
+                <span className="text-xs text-primary-foreground/80">Two-Dimensional Evidence Model</span>
               </div>
 
-              <h1 className="font-heading text-3xl sm:text-5xl font-bold tracking-tight text-white leading-tight">
+              <h1 className="font-heading text-3xl sm:text-5xl font-bold tracking-tight text-primary-foreground leading-tight">
                 Verified Progress Tracker
               </h1>
 
-              <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
+              <p className="text-sm sm:text-base text-primary-foreground/85 leading-relaxed">
                 Tracking municipal drainage, road connectivity, and community initiatives in Mayang Imphal with primary source citations, separating administrative files from ground conditions.
               </p>
 
-              <div className="pt-2 flex flex-wrap items-center gap-3">
+              <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto">
                 <PrioritySubmissionDialog>
-                  <Button className="bg-brand-blue hover:bg-brand-blue/90 text-white text-xs sm:text-sm font-medium active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary disabled:opacity-50">
+                  <Button className="rounded-none bg-secondary hover:bg-secondary/90 text-secondary-foreground text-xs sm:text-sm font-semibold min-h-[44px] justify-center active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary disabled:opacity-50">
                     Report a Project Delay or Issue
                   </Button>
                 </PrioritySubmissionDialog>
                 <a
                   href="#methodology"
-                  className="inline-flex items-center gap-1.5 text-xs text-slate-300 hover:text-white active:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white py-2 px-3 border border-white/20 rounded-md transition-colors"
+                  className="inline-flex items-center justify-center gap-1.5 text-xs text-primary-foreground/80 hover:text-primary-foreground active:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary py-2.5 px-3 min-h-[44px] border border-primary-foreground/30 rounded-none transition-colors"
                 >
                   Review Status Methodology <BarChart3 className="size-3" />
                 </a>
@@ -141,18 +141,18 @@ export default function ProgressPage() {
         </div>
 
         {/* Search & Filter Bar with Dropdown Menus */}
-        <section className="py-12 bg-background border-b border-border/60">
+        <section className="py-8 sm:py-12 bg-background border-b border-border/60">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="rounded-xl border border-border/80 bg-card p-5 mb-8 shadow-xs">
-              <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
+            <div className="rounded-none border border-border/80 bg-card p-4 sm:p-5 mb-8 shadow-xs">
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-3 sm:gap-4 items-center">
                 {/* Search Input */}
                 <div className="md:col-span-5 relative">
-                  <Search className="absolute left-3 top-2.5 size-4 text-muted-foreground" />
+                  <Search className="absolute left-3 top-3 sm:top-2.5 size-4 text-muted-foreground" />
                   <Input
                     placeholder="Search by project name, ward, locality, or authority..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="pl-9 text-xs sm:text-sm h-9 active:scale-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary disabled:opacity-50"
+                    className="pl-9 text-base sm:text-sm h-10 sm:h-9 active:scale-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary disabled:opacity-50"
                   />
                 </div>
 
@@ -161,13 +161,13 @@ export default function ProgressPage() {
                   <DropdownMenu>
                     <DropdownMenuTrigger
                       render={
-                        <Button variant="outline" size="sm" className="w-full justify-between h-9 text-xs font-normal border-border bg-background active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary disabled:opacity-50">
+                        <Button variant="outline" size="sm" className="w-full justify-between h-10 sm:h-9 text-xs font-normal border-border bg-background active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary disabled:opacity-50 rounded-none">
                           <span className="truncate">{categoryLabels[selectedCategory]}</span>
                           <ChevronDown className="size-3.5 opacity-60 shrink-0" />
                         </Button>
                       }
                     />
-                    <DropdownMenuContent className="w-64 p-1 bg-popover border border-border/80 shadow-md rounded-lg">
+                    <DropdownMenuContent className="w-[calc(100vw-2.5rem)] sm:w-64 max-w-xs p-1 bg-popover border border-border/80 shadow-md rounded-none">
                       <DropdownMenuLabel className="text-xs font-semibold text-muted-foreground">
                         Filter by category
                       </DropdownMenuLabel>
@@ -175,10 +175,10 @@ export default function ProgressPage() {
                         <DropdownMenuItem
                           key={key}
                           onClick={() => setSelectedCategory(key)}
-                          className="flex items-center justify-between text-xs py-1.5 px-2 rounded cursor-pointer active:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary"
+                          className="flex items-center justify-between text-xs py-1.5 px-2 rounded-none cursor-pointer active:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary"
                         >
                           <span className="truncate">{label}</span>
-                          {selectedCategory === key && <Check className="size-3.5 text-brand-blue shrink-0" />}
+                          {selectedCategory === key && <Check className="size-3.5 text-secondary shrink-0" />}
                         </DropdownMenuItem>
                       ))}
                     </DropdownMenuContent>
@@ -190,13 +190,13 @@ export default function ProgressPage() {
                   <DropdownMenu>
                     <DropdownMenuTrigger
                       render={
-                        <Button variant="outline" size="sm" className="w-full justify-between h-9 text-xs font-normal border-border bg-background active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary disabled:opacity-50">
+                        <Button variant="outline" size="sm" className="w-full justify-between h-10 sm:h-9 text-xs font-normal border-border bg-background active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary disabled:opacity-50 rounded-none">
                           <span className="truncate">{stageLabels[selectedStage]}</span>
                           <ChevronDown className="size-3.5 opacity-60 shrink-0" />
                         </Button>
                       }
                     />
-                    <DropdownMenuContent className="w-56 p-1 bg-popover border border-border/80 shadow-md rounded-lg">
+                    <DropdownMenuContent className="w-[calc(100vw-2.5rem)] sm:w-56 max-w-xs p-1 bg-popover border border-border/80 shadow-md rounded-none">
                       <DropdownMenuLabel className="text-xs font-semibold text-muted-foreground">
                         Filter by stage
                       </DropdownMenuLabel>
@@ -204,10 +204,10 @@ export default function ProgressPage() {
                         <DropdownMenuItem
                           key={key}
                           onClick={() => setSelectedStage(key)}
-                          className="flex items-center justify-between text-xs py-1.5 px-2 rounded cursor-pointer active:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary"
+                          className="flex items-center justify-between text-xs py-1.5 px-2 rounded-none cursor-pointer active:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary"
                         >
                           <span className="truncate">{label}</span>
-                          {selectedStage === key && <Check className="size-3.5 text-brand-blue shrink-0" />}
+                          {selectedStage === key && <Check className="size-3.5 text-secondary shrink-0" />}
                         </DropdownMenuItem>
                       ))}
                     </DropdownMenuContent>
@@ -219,22 +219,22 @@ export default function ProgressPage() {
                   <DropdownMenu>
                     <DropdownMenuTrigger
                       render={
-                        <Button variant="outline" size="sm" className="w-full justify-between h-9 text-xs font-medium border-border bg-background active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary disabled:opacity-50">
+                        <Button variant="outline" size="sm" className="w-full justify-between h-10 sm:h-9 text-xs font-medium border-border bg-background active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary disabled:opacity-50 rounded-none">
                           <span className="inline-flex items-center gap-1.5">
-                            <Download className="size-3.5 text-brand-forest" />
+                            <Download className="size-3.5 text-secondary" />
                             <span>Export</span>
                           </span>
                           <ChevronDown className="size-3.5 opacity-60 shrink-0" />
                         </Button>
                       }
                     />
-                    <DropdownMenuContent className="w-60 p-1 bg-popover border border-border/80 shadow-md rounded-lg">
+                    <DropdownMenuContent className="w-[calc(100vw-2.5rem)] sm:w-60 max-w-xs p-1 bg-popover border border-border/80 shadow-md rounded-none">
                       <DropdownMenuLabel className="text-xs font-semibold text-muted-foreground">
                         Export and citations
                       </DropdownMenuLabel>
                       <DropdownMenuItem
                         onClick={handleCopyAllCitations}
-                        className="flex items-center gap-2 text-xs py-1.5 px-2 rounded cursor-pointer active:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary"
+                        className="flex items-center gap-2 text-xs py-1.5 px-2 rounded-none cursor-pointer active:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary"
                       >
                         <Share2 className="size-3.5 text-muted-foreground" />
                         <span>{copied ? "Copied Citations!" : "Copy Document Citations"}</span>
@@ -256,7 +256,7 @@ export default function ProgressPage() {
                       setSelectedCategory("ALL")
                       setSelectedStage("ALL")
                     }}
-                    className="inline-flex items-center gap-1 text-brand-blue hover:underline font-medium cursor-pointer active:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary"
+                    className="inline-flex items-center gap-1 text-secondary hover:underline font-medium cursor-pointer active:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary"
                   >
                     <RotateCcw className="size-3" />
                     <span>Reset all filters</span>
@@ -273,7 +273,7 @@ export default function ProgressPage() {
                 ))}
               </div>
             ) : (
-              <div className="rounded-xl border border-dashed border-border p-12 text-center flex flex-col items-center justify-center gap-3">
+              <div className="rounded-none border border-dashed border-border p-12 text-center flex flex-col items-center justify-center gap-3">
                 <BarChart3 className="size-10 text-muted-foreground" />
                 <h3 className="font-heading text-lg font-semibold text-foreground">No matching project records</h3>
                 <p className="text-xs text-muted-foreground max-w-sm">
@@ -287,7 +287,7 @@ export default function ProgressPage() {
                     setSelectedCategory("ALL")
                     setSelectedStage("ALL")
                   }}
-                  className="mt-2 text-xs active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary disabled:opacity-50"
+                  className="mt-2 text-xs rounded-none active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary disabled:opacity-50"
                 >
                   Clear Filters
                 </Button>
@@ -297,7 +297,7 @@ export default function ProgressPage() {
         </section>
 
         {/* Methodology & Integrity Architecture */}
-        <section id="methodology" className="py-16 bg-brand-mist/40 dark:bg-muted/10 border-b border-border/60">
+        <section id="methodology" className="py-16 bg-muted/30 border-b border-border/60">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl mb-12">
               <h2 className="font-heading text-2xl sm:text-3xl font-bold text-foreground mt-1">
@@ -309,8 +309,8 @@ export default function ProgressPage() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="rounded-xl border border-border/80 bg-card p-6 flex flex-col gap-2">
-                <div className="text-xs font-semibold text-brand-blue">Rule 01</div>
+              <div className="rounded-none border border-border/80 bg-card p-6 flex flex-col gap-2">
+                <div className="font-mono text-xs font-semibold text-secondary">Rule 01</div>
                 <h4 className="font-heading text-base font-bold text-foreground">
                   Primary Source Requirement
                 </h4>
@@ -319,8 +319,8 @@ export default function ProgressPage() {
                 </p>
               </div>
 
-              <div className="rounded-xl border border-border/80 bg-card p-6 flex flex-col gap-2">
-                <div className="text-xs font-semibold text-brand-forest">Rule 02</div>
+              <div className="rounded-none border border-border/80 bg-card p-6 flex flex-col gap-2">
+                <div className="font-mono text-xs font-semibold text-secondary">Rule 02</div>
                 <h4 className="font-heading text-base font-bold text-foreground">
                   Separating Stage from Condition
                 </h4>
@@ -329,8 +329,8 @@ export default function ProgressPage() {
                 </p>
               </div>
 
-              <div className="rounded-xl border border-border/80 bg-card p-6 flex flex-col gap-2">
-                <div className="text-xs font-semibold text-indigo-600 dark:text-indigo-400">Rule 03</div>
+              <div className="rounded-none border border-border/80 bg-card p-6 flex flex-col gap-2">
+                <div className="font-mono text-xs font-semibold text-secondary">Rule 03</div>
                 <h4 className="font-heading text-base font-bold text-foreground">
                   Clear Authority Attribution
                 </h4>
@@ -339,8 +339,8 @@ export default function ProgressPage() {
                 </p>
               </div>
 
-              <div className="rounded-xl border border-border/80 bg-card p-6 flex flex-col gap-2">
-                <div className="text-xs font-semibold text-amber-600">Rule 04</div>
+              <div className="rounded-none border border-border/80 bg-card p-6 flex flex-col gap-2">
+                <div className="font-mono text-xs font-semibold text-nordic-amber">Rule 04</div>
                 <h4 className="font-heading text-base font-bold text-foreground">
                   Clear &ldquo;Proposed&rdquo; Distinction
                 </h4>
@@ -355,7 +355,7 @@ export default function ProgressPage() {
         {/* Citizen Field Reporting CTA */}
         <section className="py-16 bg-background">
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center gap-4">
-            <div className="flex size-12 items-center justify-center rounded-xl bg-brand-blue/10 text-brand-blue">
+            <div className="flex size-12 items-center justify-center rounded-none border border-secondary/30 bg-secondary/10 text-secondary">
               <MessageSquarePlus className="size-6" />
             </div>
             <h2 className="font-heading text-2xl font-bold text-foreground">
@@ -365,7 +365,7 @@ export default function ProgressPage() {
               If a culvert has been completed, a road surface is degrading, or work has stopped, share your observation with us to update our evidence log.
             </p>
             <PrioritySubmissionDialog>
-              <Button size="lg" className="bg-brand-navy hover:bg-brand-navy/90 text-white dark:bg-brand-blue dark:hover:bg-brand-blue/90 text-xs sm:text-sm font-medium px-6 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary disabled:opacity-50">
+              <Button size="lg" className="rounded-none bg-primary hover:bg-primary/90 text-primary-foreground text-xs sm:text-sm font-semibold px-6 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary disabled:opacity-50">
                 Submit a Field Observation
               </Button>
             </PrioritySubmissionDialog>

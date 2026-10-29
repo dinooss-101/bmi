@@ -49,11 +49,11 @@ export default function ContactPage() {
 
       <main>
         {/* Page Header */}
-        <section className="border-b border-border bg-background pt-16 pb-12 sm:pt-20 sm:pb-16">
-          <div className="mx-auto max-w-5xl px-6 sm:px-8 lg:px-10">
+        <section className="border-b border-border bg-background pt-12 pb-10 sm:pt-16 sm:pb-12">
+          <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
             <Link
               href="/"
-              className="inline-flex items-center gap-1.5 text-xs font-medium text-muted-foreground hover:text-foreground transition-colors mb-8"
+              className="inline-flex items-center gap-1.5 text-xs font-medium text-muted-foreground hover:text-foreground transition-colors mb-6 sm:mb-8 min-h-[44px]"
             >
               <ArrowLeft className="size-3.5" />
               Back to Mayang Imphal Platform
@@ -63,7 +63,7 @@ export default function ContactPage() {
               <span className="text-xs font-semibold text-secondary block mb-2">
                 Direct access
               </span>
-              <h1 className="font-headline text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-foreground leading-[1.14]">
+              <h1 className="font-headline text-2xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-foreground leading-[1.14]">
                 Contact the constituency desk.
               </h1>
               <p className="mt-4 text-sm sm:text-base text-muted-foreground leading-relaxed max-w-lg">
@@ -74,8 +74,8 @@ export default function ContactPage() {
         </section>
 
         {/* Office Info + Form */}
-        <section className="border-b border-border bg-background py-16 sm:py-20 lg:py-24">
-          <div className="mx-auto max-w-5xl px-6 sm:px-8 lg:px-10">
+        <section className="border-b border-border bg-background py-12 sm:py-16 lg:py-20">
+          <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
             <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
 
               {/* Left: Office Details */}
@@ -143,7 +143,7 @@ export default function ContactPage() {
                   </p>
                 </div>
 
-                <div className="border border-border bg-card p-6 sm:p-8 shadow-xs">
+                <div className="border border-border bg-card p-4 sm:p-8 shadow-xs">
                   <div className="mb-4 inline-flex items-center gap-1.5 border border-border/80 bg-muted/40 px-2.5 py-1 text-[11px] font-medium text-muted-foreground">
                     <span>Demonstration prototype · Client-side preview</span>
                   </div>
@@ -180,7 +180,7 @@ export default function ContactPage() {
                             id="contact-cat"
                             value={category}
                             onChange={(e) => setCategory(e.target.value)}
-                            className="w-full border border-border bg-background px-3 py-2.5 text-xs text-foreground focus:outline-none focus:ring-1 focus:ring-secondary"
+                            className="w-full border border-border bg-background px-3 py-2.5 text-base sm:text-xs text-foreground focus:outline-none focus:ring-1 focus:ring-secondary"
                           >
                             <option value="drainage">Drainage &amp; Flood Mitigation</option>
                             <option value="education">School STEM &amp; Future Labs</option>
@@ -197,7 +197,7 @@ export default function ContactPage() {
                             id="contact-ward"
                             value={ward}
                             onChange={(e) => setWard(e.target.value)}
-                            className="w-full border border-border bg-background px-3 py-2.5 text-xs text-foreground focus:outline-none focus:ring-1 focus:ring-secondary"
+                            className="w-full border border-border bg-background px-3 py-2.5 text-base sm:text-xs text-foreground focus:outline-none focus:ring-1 focus:ring-secondary"
                           >
                             <option value="ward-1">Ward 1: Bazar Central</option>
                             <option value="ward-2">Ward 2: Chabung Company</option>
@@ -221,7 +221,7 @@ export default function ContactPage() {
                           value={description}
                           onChange={(e) => setDescription(e.target.value)}
                           placeholder="Describe the issue, physical landmarks, and estimated community impact..."
-                          className="w-full border border-border bg-background p-3 text-xs text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-1 focus:ring-secondary resize-none"
+                          className="w-full border border-border bg-background p-3 text-base sm:text-xs text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-1 focus:ring-secondary resize-none"
                         />
                       </div>
 
@@ -276,13 +276,13 @@ export default function ContactPage() {
                         </div>
                       </div>
 
-                      <div className="pt-3 flex items-center justify-between border-t border-border/40">
-                        <span className="text-[11px] text-muted-foreground">
+                      <div className="pt-3 flex flex-col-reverse sm:flex-row items-stretch sm:items-center justify-between gap-3 border-t border-border/40">
+                        <span className="text-[11px] text-muted-foreground text-center sm:text-left">
                           Evaluated in local client session
                         </span>
                         <Button
                           type="submit"
-                          className="px-6 py-2.5 text-xs font-semibold flex items-center gap-2"
+                          className="px-6 py-2.5 min-h-[44px] text-xs font-semibold flex items-center justify-center gap-2 w-full sm:w-auto"
                         >
                           <span>Submit priority to desk</span>
                           <Send className="size-3.5" />

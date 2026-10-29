@@ -68,50 +68,50 @@ export default function DevelopmentPage() {
   }
 
   return (
-    <div className="flex min-h-screen flex-col bg-background selection:bg-brand-blue selection:text-white">
+    <div className="flex min-h-screen flex-col bg-background selection:bg-secondary selection:text-secondary-foreground">
       <SiteHeader />
 
       <main className="flex-1">
         {/* Page Hero */}
-        <div className="bg-brand-navy text-white py-16 md:py-20 border-b border-border/20">
+        <div className="bg-primary text-primary-foreground py-12 sm:py-16 md:py-20 border-b border-border/20">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
               <div className="lg:col-span-7 flex flex-col gap-4">
                 <Link
                   href="/"
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-300 hover:text-white active:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white transition-colors w-fit"
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary-foreground/80 hover:text-primary-foreground active:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary transition-colors w-fit"
                 >
                   <ArrowLeft className="size-3.5" /> Back to Overview
                 </Link>
 
                 <div className="flex items-center gap-2">
-                  <Badge variant="outline" className="border-brand-blue/40 bg-brand-blue/10 text-brand-blue text-xs font-medium">
+                  <Badge variant="outline" className="rounded-none border-primary-foreground/30 bg-primary-foreground/10 text-primary-foreground text-xs font-medium">
                     AMRUT 2.0 Sub-Scheme
                   </Badge>
-                  <span className="text-xs text-slate-300">Town Planning Department, Manipur</span>
+                  <span className="text-xs text-primary-foreground/80">Town Planning Department, Manipur</span>
                 </div>
 
-                <h1 className="font-heading text-3xl sm:text-5xl font-bold tracking-tight text-white leading-tight">
+                <h1 className="font-heading text-3xl sm:text-5xl font-bold tracking-tight text-primary-foreground leading-tight">
                   Mayang Imphal: Planning for the Future
                 </h1>
 
-                <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
+                <p className="text-sm sm:text-base text-primary-foreground/85 leading-relaxed">
                   An authoritative civic analysis of the GIS-based Master Plan formulation for Mayang Imphal under the Atal Mission for Rejuvenation and Urban Transformation (AMRUT 2.0).
                 </p>
 
-                <div className="pt-2 flex flex-wrap items-center gap-3">
+                <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto">
                   <a
                     href={rfpUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 rounded-md bg-brand-blue px-4 py-2 text-xs sm:text-sm font-medium text-white hover:bg-brand-blue/90 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white disabled:opacity-50 transition-colors"
+                    className="inline-flex items-center justify-center gap-1.5 rounded-none bg-secondary px-4 py-2.5 min-h-[44px] text-xs sm:text-sm font-semibold text-secondary-foreground hover:bg-secondary/90 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary disabled:opacity-50 transition-colors"
                   >
                     <span>Download Official RFP Document</span>
                     <ExternalLink className="size-3.5" />
                   </a>
                   <Link
                     href="/progress"
-                    className="inline-flex items-center gap-1.5 text-xs text-slate-300 hover:text-white active:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white py-2 px-3 border border-white/20 rounded-md transition-colors"
+                    className="inline-flex items-center justify-center gap-1.5 text-xs text-primary-foreground/80 hover:text-primary-foreground active:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary py-2.5 px-3 min-h-[44px] border border-primary-foreground/30 rounded-none transition-colors"
                   >
                     <span>Track Municipal Works</span>
                     <ArrowRight className="size-3" />
@@ -127,7 +127,7 @@ export default function DevelopmentPage() {
                   badge="AMRUT 2.0 Spatial Model"
                   title="GIS Cadastral Base Map"
                   subtitle="High-resolution satellite stereo imagery and ground control survey for Mayang Imphal town."
-                  className="shadow-md border-white/20"
+                  className="shadow-md border-primary-foreground/20"
                 />
               </div>
             </div>
@@ -135,12 +135,12 @@ export default function DevelopmentPage() {
         </div>
 
         {/* Core Statutory Parameters (Fact Check Grid) */}
-        <section className="py-12 bg-brand-mist/40 dark:bg-muted/10 border-b border-border/60">
+        <section className="py-12 bg-muted/30 border-b border-border/60">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              <div className="rounded-lg border border-border/80 bg-card p-5 flex flex-col justify-between">
+              <div className="rounded-none border border-border/80 bg-card p-5 flex flex-col justify-between">
                 <div>
-                  <span className="text-xs font-semibold text-brand-blue">
+                  <span className="text-xs font-mono font-semibold text-secondary">
                     Statutory Horizon
                   </span>
                   <div className="font-heading text-3xl font-bold text-foreground mt-1 mb-2">
@@ -150,14 +150,14 @@ export default function DevelopmentPage() {
                     Explicitly specified in <strong>Clause 4.3.4(a)</strong> of the RFP. Unofficial public mentions of &ldquo;2046&rdquo; were unverified.
                   </p>
                 </div>
-                <div className="text-[11px] font-medium text-muted-foreground mt-3 pt-2 border-t border-border/40">
+                <div className="text-[11px] font-mono text-muted-foreground mt-3 pt-2 border-t border-border/40">
                   RFP Clause 4.3.4(a)
                 </div>
               </div>
 
-              <div className="rounded-lg border border-border/80 bg-card p-5 flex flex-col justify-between">
+              <div className="rounded-none border border-border/80 bg-card p-5 flex flex-col justify-between">
                 <div>
-                  <span className="text-xs font-semibold text-brand-forest">
+                  <span className="text-xs font-mono font-semibold text-secondary">
                     Preliminary Area
                   </span>
                   <div className="font-heading text-3xl font-bold text-foreground mt-1 mb-2">
@@ -167,14 +167,14 @@ export default function DevelopmentPage() {
                     Preliminary planning boundary encompassing Mayang Imphal Municipal Council and contiguous peripheral development nodes.
                   </p>
                 </div>
-                <div className="text-[11px] font-medium text-muted-foreground mt-3 pt-2 border-t border-border/40">
+                <div className="text-[11px] font-mono text-muted-foreground mt-3 pt-2 border-t border-border/40">
                   RFP Clause 4.1
                 </div>
               </div>
 
-              <div className="rounded-lg border border-border/80 bg-card p-5 flex flex-col justify-between">
+              <div className="rounded-none border border-border/80 bg-card p-5 flex flex-col justify-between">
                 <div>
-                  <span className="text-xs font-semibold text-indigo-600 dark:text-indigo-400">
+                  <span className="text-xs font-mono font-semibold text-secondary">
                     Lead Authority
                   </span>
                   <div className="font-heading text-xl font-bold text-foreground mt-1 mb-2">
@@ -184,14 +184,14 @@ export default function DevelopmentPage() {
                     Government of Manipur is the statutory commissioning agency under AMRUT 2.0. BETTER MAYANG IMPHAL provides civic analysis only.
                   </p>
                 </div>
-                <div className="text-[11px] font-medium text-muted-foreground mt-3 pt-2 border-t border-border/40">
+                <div className="text-[11px] font-mono text-muted-foreground mt-3 pt-2 border-t border-border/40">
                   State Directorate
                 </div>
               </div>
 
-              <div className="rounded-lg border border-border/80 bg-card p-5 flex flex-col justify-between">
+              <div className="rounded-none border border-border/80 bg-card p-5 flex flex-col justify-between">
                 <div>
-                  <span className="text-xs font-semibold text-amber-600">
+                  <span className="text-xs font-mono font-semibold text-nordic-amber">
                     Workshop Milestone
                   </span>
                   <div className="font-heading text-xl font-bold text-foreground mt-1 mb-2">
@@ -201,7 +201,7 @@ export default function DevelopmentPage() {
                     September 2026 workshop highlighted low-lying depression flood management and inter-ward connectivity as primary concerns.
                   </p>
                 </div>
-                <div className="text-[11px] font-medium text-muted-foreground mt-3 pt-2 border-t border-border/40">
+                <div className="text-[11px] font-mono text-muted-foreground mt-3 pt-2 border-t border-border/40">
                   Stakeholder Review
                 </div>
               </div>
@@ -212,7 +212,7 @@ export default function DevelopmentPage() {
         {/* Interactive GIS Spatial Layers (Dropdown Menu Data Explorer) */}
         <section className="py-14 bg-background border-b border-border/60">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="rounded-2xl border border-border/80 bg-card p-6 sm:p-8 shadow-xs">
+            <div className="rounded-none border border-border/80 bg-card p-6 sm:p-8 shadow-xs">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-border/60">
                 <div>
                   <h3 className="font-heading text-xl font-bold text-foreground mt-0.5">
@@ -226,14 +226,14 @@ export default function DevelopmentPage() {
                 <DropdownMenu>
                   <DropdownMenuTrigger
                     render={
-                      <Button variant="outline" size="sm" className="h-9 gap-2 text-xs border-border bg-background active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary disabled:opacity-50">
-                        <Layers className="size-3.5 text-brand-blue" />
+                      <Button variant="outline" size="sm" className="h-10 sm:h-9 gap-2 text-xs border-border bg-background active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary disabled:opacity-50 rounded-none">
+                        <Layers className="size-3.5 text-secondary" />
                         <span>{layers[activeLayer]?.title.split("&")[0]}</span>
                         <ChevronDown className="size-3.5 opacity-60" />
                       </Button>
                     }
                   />
-                  <DropdownMenuContent className="w-72 p-1 bg-popover border border-border/80 shadow-md rounded-lg">
+                  <DropdownMenuContent className="w-[calc(100vw-2.5rem)] sm:w-72 max-w-xs p-1 bg-popover border border-border/80 shadow-md rounded-none">
                     <DropdownMenuLabel className="text-xs font-semibold text-muted-foreground">
                       Choose planning layer
                     </DropdownMenuLabel>
@@ -241,10 +241,10 @@ export default function DevelopmentPage() {
                       <DropdownMenuItem
                         key={key}
                         onClick={() => setActiveLayer(key)}
-                        className="flex items-center justify-between text-xs py-2 px-2.5 rounded cursor-pointer active:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary"
+                        className="flex items-center justify-between text-xs py-2 px-2.5 rounded-none cursor-pointer active:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary"
                       >
                         <span className="truncate">{item.title}</span>
-                        {activeLayer === key && <Check className="size-3.5 text-brand-blue shrink-0" />}
+                        {activeLayer === key && <Check className="size-3.5 text-secondary shrink-0" />}
                       </DropdownMenuItem>
                     ))}
                   </DropdownMenuContent>
@@ -254,7 +254,7 @@ export default function DevelopmentPage() {
               {/* Active Layer Detail Display */}
               <div className="pt-6 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                 <div className="lg:col-span-7 flex flex-col gap-3">
-                  <Badge variant="outline" className="w-fit text-xs text-brand-forest border-brand-forest/30">
+                  <Badge variant="outline" className="w-fit text-xs text-secondary border-secondary/30 rounded-none">
                     {layers[activeLayer]?.rfpClause}
                   </Badge>
                   <h4 className="font-heading text-2xl font-bold text-foreground">
@@ -284,7 +284,7 @@ export default function DevelopmentPage() {
         </section>
 
         {/* Master Plan Formulation Stages */}
-        <section className="py-16 bg-brand-mist/40 dark:bg-muted/10 border-b border-border/60">
+        <section className="py-16 bg-muted/30 border-b border-border/60">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="max-w-2xl mb-12">
               <h2 className="font-heading text-2xl sm:text-3xl font-bold text-foreground mt-1">
@@ -296,9 +296,9 @@ export default function DevelopmentPage() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <Card className="border-border/80 bg-card">
+              <Card className="border-border/80 bg-card rounded-none">
                 <CardHeader className="pb-2">
-                  <div className="text-xs font-semibold text-brand-blue">Stage 01</div>
+                  <div className="font-mono text-xs font-semibold text-secondary">Stage 01</div>
                   <CardTitle className="font-heading text-base font-bold text-foreground">
                     GIS Base Map & Cadastral Overlay
                   </CardTitle>
@@ -308,9 +308,9 @@ export default function DevelopmentPage() {
                 </CardContent>
               </Card>
 
-              <Card className="border-border/80 bg-card">
+              <Card className="border-border/80 bg-card rounded-none">
                 <CardHeader className="pb-2">
-                  <div className="text-xs font-semibold text-brand-forest">Stage 02</div>
+                  <div className="font-mono text-xs font-semibold text-secondary">Stage 02</div>
                   <CardTitle className="font-heading text-base font-bold text-foreground">
                     Existing Land Use (ELU) Survey
                   </CardTitle>
@@ -320,9 +320,9 @@ export default function DevelopmentPage() {
                 </CardContent>
               </Card>
 
-              <Card className="border-border/80 bg-card">
+              <Card className="border-border/80 bg-card rounded-none">
                 <CardHeader className="pb-2">
-                  <div className="text-xs font-semibold text-indigo-600 dark:text-indigo-400">Stage 03</div>
+                  <div className="font-mono text-xs font-semibold text-secondary">Stage 03</div>
                   <CardTitle className="font-heading text-base font-bold text-foreground">
                     Consultative Workshops
                   </CardTitle>
@@ -332,9 +332,9 @@ export default function DevelopmentPage() {
                 </CardContent>
               </Card>
 
-              <Card className="border-border/80 bg-card">
+              <Card className="border-border/80 bg-card rounded-none">
                 <CardHeader className="pb-2">
-                  <div className="text-xs font-semibold text-amber-600">Stage 04</div>
+                  <div className="font-mono text-xs font-semibold text-secondary">Stage 04</div>
                   <CardTitle className="font-heading text-base font-bold text-foreground">
                     Draft Master Plan & Zoning Regulations
                   </CardTitle>
@@ -344,9 +344,9 @@ export default function DevelopmentPage() {
                 </CardContent>
               </Card>
 
-              <Card className="border-border/80 bg-card">
+              <Card className="border-border/80 bg-card rounded-none">
                 <CardHeader className="pb-2">
-                  <div className="text-xs font-semibold text-rose-600 dark:text-rose-400">Stage 05</div>
+                  <div className="font-mono text-xs font-semibold text-secondary">Stage 05</div>
                   <CardTitle className="font-heading text-base font-bold text-foreground">
                     Public Objections & Hearing
                   </CardTitle>
@@ -356,9 +356,9 @@ export default function DevelopmentPage() {
                 </CardContent>
               </Card>
 
-              <Card className="border-border/80 bg-card">
+              <Card className="border-border/80 bg-card rounded-none">
                 <CardHeader className="pb-2">
-                  <div className="text-xs font-semibold text-emerald-600 dark:text-emerald-400">Stage 06</div>
+                  <div className="font-mono text-xs font-semibold text-secondary">Stage 06</div>
                   <CardTitle className="font-heading text-base font-bold text-foreground">
                     Town Planning Board & Gazette Notification
                   </CardTitle>
@@ -383,8 +383,8 @@ export default function DevelopmentPage() {
               </p>
             </div>
 
-            <div className="overflow-x-auto rounded-xl border border-border/80 bg-card shadow-xs">
-              <table className="w-full text-left text-xs">
+            <div className="overflow-x-auto rounded-none border border-border/80 bg-card shadow-xs">
+              <table className="w-full min-w-[640px] text-left text-xs">
                 <thead className="bg-muted/60 text-foreground font-semibold border-b border-border/80">
                   <tr>
                     <th className="p-4">Jurisdictional Body</th>
@@ -480,12 +480,12 @@ export default function DevelopmentPage() {
         </section>
 
         {/* Primary Source Document Callout */}
-        <section className="py-14 bg-brand-mist/40 dark:bg-muted/10">
+        <section className="py-14 bg-muted/30">
           <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-            <div className="rounded-xl border border-brand-blue/30 bg-brand-blue/5 p-6 sm:p-8 flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div className="rounded-none border border-secondary/30 bg-secondary/5 p-6 sm:p-8 flex flex-col md:flex-row md:items-center justify-between gap-6">
               <div className="flex flex-col gap-2">
                 <h3 className="font-heading text-lg font-bold text-foreground flex items-center gap-2">
-                  <FileText className="size-5 text-brand-blue shrink-0" />
+                  <FileText className="size-5 text-secondary shrink-0" />
                   <span>Official Document Citation: GIS Master Plan RFP</span>
                 </h3>
                 <p className="text-xs text-muted-foreground leading-relaxed max-w-2xl">
@@ -497,7 +497,7 @@ export default function DevelopmentPage() {
                 href={rfpUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex shrink-0 items-center justify-center gap-1.5 rounded-md bg-brand-navy hover:bg-brand-navy/90 text-white dark:bg-brand-blue dark:hover:bg-brand-blue/90 px-5 py-3 text-xs font-semibold shadow-xs active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary disabled:opacity-50 transition-colors"
+                className="inline-flex shrink-0 items-center justify-center gap-1.5 rounded-none bg-primary hover:bg-primary/90 text-primary-foreground px-5 py-3 text-xs font-semibold shadow-xs active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary disabled:opacity-50 transition-colors"
               >
                 <span>Read Full RFP PDF</span>
                 <ExternalLink className="size-4" />

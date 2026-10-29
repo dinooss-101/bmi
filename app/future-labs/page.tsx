@@ -24,45 +24,45 @@ export default function FutureLabsPage() {
   const [activeTab, setActiveTab] = useState(futureLabsTracks[0].id)
 
   return (
-    <div className="flex min-h-screen flex-col bg-background selection:bg-brand-blue selection:text-white">
+    <div className="flex min-h-screen flex-col bg-background selection:bg-secondary selection:text-secondary-foreground">
       <SiteHeader />
 
       <main className="flex-1">
         {/* Page Hero */}
-        <div className="bg-brand-navy text-white py-16 md:py-20 border-b border-border/20">
+        <div className="bg-primary text-primary-foreground py-12 sm:py-16 md:py-20 border-b border-border/20">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col gap-4 max-w-3xl">
               <Link
                 href="/"
-                className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-300 hover:text-white active:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white transition-colors w-fit"
+                className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary-foreground/80 hover:text-primary-foreground active:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary transition-colors w-fit"
               >
                 <ArrowLeft className="size-3.5" /> Back to Overview
               </Link>
 
               <div className="flex items-center gap-2">
-                <Badge variant="outline" className="border-amber-400/40 bg-amber-400/10 text-amber-300 text-xs font-medium">
+                <Badge variant="outline" className="rounded-none border-nordic-amber/40 bg-nordic-amber/10 text-nordic-amber text-xs font-medium">
                   Proposed initiative · In assessment
                 </Badge>
-                <span className="text-xs text-slate-300">Phase 1 Feasibility Study</span>
+                <span className="text-xs text-primary-foreground/80">Phase 1 Feasibility Study</span>
               </div>
 
-              <h1 className="font-heading text-3xl sm:text-5xl font-bold tracking-tight text-white leading-tight">
+              <h1 className="font-heading text-3xl sm:text-5xl font-bold tracking-tight text-primary-foreground leading-tight">
                 Mayang Imphal Future Labs
               </h1>
 
-              <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
+              <p className="text-sm sm:text-base text-primary-foreground/85 leading-relaxed">
                 A community-centered STEM, physical robotics, and responsible AI learning initiative designed to equip Mayang Imphal students with practical digital capabilities grounded in real local challenges.
               </p>
 
-              <div className="pt-2 flex flex-wrap items-center gap-3">
+              <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto">
                 <RegisterInterestDialog initialProgramType="FUTURE_LABS">
-                  <Button className="bg-brand-blue hover:bg-brand-blue/90 text-white text-xs sm:text-sm font-medium active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary disabled:opacity-50">
+                  <Button className="rounded-none bg-secondary hover:bg-secondary/90 text-secondary-foreground text-xs sm:text-sm font-semibold min-h-[44px] justify-center active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary disabled:opacity-50">
                     Register Interest (Student / Teacher / Mentor)
                   </Button>
                 </RegisterInterestDialog>
                 <a
                   href="#roadmap"
-                  className="inline-flex items-center gap-1.5 text-xs text-slate-300 hover:text-white active:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white py-2 px-3 border border-white/20 rounded-md transition-colors"
+                  className="inline-flex items-center justify-center gap-1.5 text-xs text-primary-foreground/80 hover:text-primary-foreground active:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary py-2.5 px-3 min-h-[44px] border border-primary-foreground/30 rounded-none transition-colors"
                 >
                   <span>View 5-Stage Roadmap</span>
                   <ArrowRight className="size-3" />
@@ -73,10 +73,10 @@ export default function FutureLabsPage() {
         </div>
 
         {/* Global Trend vs Local Reality Context */}
-        <section className="py-12 bg-brand-mist/40 dark:bg-muted/10 border-b border-border/60">
+        <section className="py-12 bg-muted/30 border-b border-border/60">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="rounded-lg border border-border/80 bg-card p-5 flex flex-col gap-2">
+              <div className="rounded-none border border-border/80 bg-card p-5 flex flex-col gap-2">
                 <h3 className="font-heading font-semibold text-base text-foreground">
                   WEF 2025 Future of Jobs
                 </h3>
@@ -85,7 +85,7 @@ export default function FutureLabsPage() {
                 </p>
               </div>
 
-              <div className="rounded-lg border border-border/80 bg-card p-5 flex flex-col gap-2">
+              <div className="rounded-none border border-border/80 bg-card p-5 flex flex-col gap-2">
                 <h3 className="font-heading font-semibold text-base text-foreground">
                   Practical Hardware Access
                 </h3>
@@ -94,7 +94,7 @@ export default function FutureLabsPage() {
                 </p>
               </div>
 
-              <div className="rounded-lg border border-border/80 bg-card p-5 flex flex-col gap-2">
+              <div className="rounded-none border border-border/80 bg-card p-5 flex flex-col gap-2">
                 <h3 className="font-heading font-semibold text-base text-foreground">
                   Offline-First Learning
                 </h3>
@@ -119,9 +119,9 @@ export default function FutureLabsPage() {
             </div>
 
             <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-              <TabsList className="bg-muted p-1 rounded-xl mb-8 flex flex-wrap sm:flex-nowrap sm:overflow-x-auto gap-1">
+              <TabsList className="bg-muted p-1 rounded-none mb-8 flex flex-wrap sm:flex-nowrap overflow-x-auto gap-1">
                 {futureLabsTracks.map((t) => (
-                  <TabsTrigger key={t.id} value={t.id} className="text-xs sm:text-sm px-4 py-2">
+                  <TabsTrigger key={t.id} value={t.id} className="text-xs sm:text-sm px-4 py-2 min-h-[40px] sm:min-h-0 rounded-none">
                     {t.title}
                   </TabsTrigger>
                 ))}
@@ -130,13 +130,13 @@ export default function FutureLabsPage() {
               {futureLabsTracks.map((t) => (
                 <TabsContent key={t.id} value={t.id} className="focus-visible:outline-none">
                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-                    <Card className="lg:col-span-8 border-border/80 bg-card">
+                    <Card className="lg:col-span-8 border-border/80 bg-card rounded-none">
                       <CardHeader className="gap-2">
                         <div className="flex items-center justify-between">
-                          <Badge variant="outline" className="text-xs font-semibold text-brand-blue border-brand-blue/30">
+                          <Badge variant="outline" className="text-xs font-semibold text-secondary border-secondary/30 rounded-none">
                             {t.ageGroup}
                           </Badge>
-                          <span className="text-xs text-muted-foreground">Term Length: 12 Weeks</span>
+                          <span className="text-xs text-muted-foreground font-mono">Term Length: 12 Weeks</span>
                         </div>
                         <CardTitle className="font-heading text-2xl font-bold text-foreground">
                           {t.title}
@@ -153,16 +153,16 @@ export default function FutureLabsPage() {
                           </h4>
                           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                             {t.coreTopics.map((topic, i) => (
-                              <div key={i} className="flex items-start gap-2.5 rounded-lg border border-border/60 bg-muted/30 p-3 text-xs">
-                                <CheckCircle2 className="size-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
+                              <div key={i} className="flex items-start gap-2.5 rounded-none border border-border/60 bg-muted/30 p-3 text-xs">
+                                <CheckCircle2 className="size-4 text-secondary shrink-0 mt-0.5" />
                                 <span className="font-medium text-foreground">{topic}</span>
                               </div>
                             ))}
                           </div>
                         </div>
 
-                        <div className="rounded-xl border border-brand-blue/30 bg-brand-blue/5 p-5 flex flex-col gap-3">
-                          <span className="text-xs font-semibold text-brand-blue flex items-center gap-1.5">
+                        <div className="rounded-none border border-secondary/30 bg-secondary/5 p-5 flex flex-col gap-3">
+                          <span className="text-xs font-semibold text-secondary flex items-center gap-1.5">
                             <Cpu className="size-4" /> Capstone Project Brief
                           </span>
                           <h5 className="font-heading text-lg font-bold text-foreground">
@@ -171,7 +171,7 @@ export default function FutureLabsPage() {
                           <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
                             {t.handsOnProject.description}
                           </p>
-                          <div className="rounded-md bg-background/80 border border-border/60 p-3 text-xs text-muted-foreground">
+                          <div className="rounded-none bg-background/80 border border-border/60 p-3 text-xs text-muted-foreground">
                             <strong>Hardware Feasibility &amp; Offline Note:</strong> {t.handsOnProject.feasibilityNote}
                           </div>
                         </div>
@@ -179,10 +179,10 @@ export default function FutureLabsPage() {
                     </Card>
 
                     <div className="lg:col-span-4 flex flex-col gap-5">
-                      <Card className="border-border/80 bg-muted/20">
+                      <Card className="border-border/80 bg-muted/20 rounded-none">
                         <CardHeader className="pb-3">
                           <CardTitle className="text-sm font-semibold text-foreground flex items-center gap-2">
-                            <School className="size-4 text-brand-forest" />
+                            <School className="size-4 text-secondary" />
                             School Partnership Model
                           </CardTitle>
                         </CardHeader>
@@ -196,16 +196,16 @@ export default function FutureLabsPage() {
                         </CardContent>
                         <CardFooter className="pt-2 border-t border-border/50">
                           <RegisterInterestDialog initialProgramType="FUTURE_LABS">
-                            <Button size="sm" variant="outline" className="w-full text-xs active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary disabled:opacity-50">
+                            <Button size="sm" variant="outline" className="w-full text-xs active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary disabled:opacity-50 rounded-none">
                               Inquire for Your School
                             </Button>
                           </RegisterInterestDialog>
                         </CardFooter>
                       </Card>
 
-                      <div className="rounded-lg border border-border/80 bg-card p-4 text-xs text-muted-foreground flex flex-col gap-2">
+                      <div className="rounded-none border border-border/80 bg-card p-4 text-xs text-muted-foreground flex flex-col gap-2">
                         <span className="font-semibold text-foreground flex items-center gap-1.5">
-                          <HardDrive className="size-3.5 text-brand-blue" />
+                          <HardDrive className="size-3.5 text-secondary" />
                           Zero Personal Device Barrier
                         </span>
                         <p className="leading-relaxed">
@@ -221,7 +221,7 @@ export default function FutureLabsPage() {
         </section>
 
         {/* 5-Stage Implementation Roadmap */}
-        <section id="roadmap" className="py-16 bg-brand-mist/40 dark:bg-muted/10 border-b border-border/60">
+        <section id="roadmap" className="py-16 bg-muted/30 border-b border-border/60">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="max-w-2xl mb-12">
               <h2 className="font-heading text-2xl sm:text-3xl font-bold text-foreground">
@@ -238,18 +238,18 @@ export default function FutureLabsPage() {
                 return (
                   <div
                     key={m.phase}
-                    className={`rounded-xl border p-6 transition ${
+                    className={`rounded-none border p-6 transition ${
                       isCurrent
-                        ? "border-brand-blue bg-card shadow-md"
+                        ? "border-secondary bg-card shadow-md"
                         : "border-border/80 bg-card/70 opacity-90"
                     }`}
                   >
                     <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4 pb-4 border-b border-border/60">
                       <div className="flex items-center gap-3">
                         <div
-                          className={`flex size-10 items-center justify-center rounded-lg font-mono text-sm font-bold ${
+                          className={`flex size-10 items-center justify-center rounded-none font-mono text-sm font-bold ${
                             isCurrent
-                              ? "bg-brand-blue text-white"
+                              ? "bg-secondary text-secondary-foreground"
                               : "bg-muted text-muted-foreground"
                           }`}
                         >
@@ -257,11 +257,11 @@ export default function FutureLabsPage() {
                         </div>
                         <div>
                           <div className="flex items-center gap-2">
-                            <span className="text-xs font-semibold text-muted-foreground">
+                            <span className="text-xs font-semibold text-muted-foreground font-mono">
                               {m.phase}
                             </span>
                             {isCurrent && (
-                              <Badge variant="outline" className="border-brand-blue/40 bg-brand-blue/10 text-brand-blue text-[11px]">
+                              <Badge variant="outline" className="border-secondary/40 bg-secondary/10 text-secondary text-[11px] rounded-none">
                                 CURRENT ASSESSMENT
                               </Badge>
                             )}
@@ -272,7 +272,7 @@ export default function FutureLabsPage() {
                         </div>
                       </div>
 
-                      <div className="text-xs text-muted-foreground">
+                      <div className="text-xs text-muted-foreground font-mono">
                         {isCurrent ? "Status: Active Community Consultations" : "Status: Staged Post-Pilot"}
                       </div>
                     </div>
@@ -281,14 +281,14 @@ export default function FutureLabsPage() {
                       {m.description}
                     </p>
 
-                    <div className="rounded-lg bg-muted/30 border border-border/50 p-4">
+                    <div className="rounded-none bg-muted/30 border border-border/50 p-4">
                       <span className="text-xs font-semibold text-foreground block mb-2">
                         Key Milestones &amp; Verification Deliverables:
                       </span>
                       <ul className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs text-muted-foreground">
                         {m.deliverables.map((del, dIdx) => (
                           <li key={dIdx} className="flex items-start gap-2">
-                            <span className="text-brand-blue font-bold">•</span>
+                            <span className="text-secondary font-bold">•</span>
                             <span>{del}</span>
                           </li>
                         ))}

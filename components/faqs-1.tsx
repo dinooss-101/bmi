@@ -33,17 +33,17 @@ export default function FAQs() {
   ]
 
   return (
-    <section className="border-b border-border bg-background py-20 sm:py-28 lg:py-32" id="faqs">
-      <div className="mx-auto max-w-5xl px-6 sm:px-8 lg:px-10">
-        <div className="grid gap-12 lg:grid-cols-12 lg:gap-16 items-start">
+    <section className="border-b border-border bg-background py-14 sm:py-20 lg:py-28" id="faqs">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+        <div className="grid gap-10 lg:grid-cols-12 lg:gap-16 items-start">
           <div className="lg:col-span-5">
-            <h2 className="font-headline text-3xl sm:text-4xl font-semibold text-foreground tracking-tight">
+            <h2 className="font-headline text-2xl sm:text-4xl font-semibold text-foreground tracking-tight">
               Constituency inquiries.
             </h2>
             <p className="mt-3 text-sm text-muted-foreground leading-relaxed mb-6">
               Straightforward answers about our civic mandate, urban planning, and open office hours in Mayang Imphal.
             </p>
-            <div className="border border-border bg-card p-5">
+            <div className="border border-border bg-card p-4 sm:p-5">
               <span className="text-xs font-semibold text-foreground block mb-1">
                 Have a specific question?
               </span>
@@ -65,9 +65,9 @@ export default function FAQs() {
                 <AccordionItem
                   key={item.id}
                   value={item.id}
-                  className="border border-border bg-card px-5 py-1.5"
+                  className="border border-border bg-card px-4 sm:px-5 py-1"
                 >
-                  <AccordionTrigger className="cursor-pointer text-left font-headline text-sm sm:text-base font-medium text-foreground hover:no-underline py-3.5">
+                  <AccordionTrigger className="cursor-pointer text-left font-headline text-sm sm:text-base font-medium text-foreground hover:no-underline py-3.5 min-h-[44px]">
                     {item.question}
                   </AccordionTrigger>
                   <AccordionContent className="pt-1 pb-4">

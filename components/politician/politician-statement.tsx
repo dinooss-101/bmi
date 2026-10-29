@@ -11,8 +11,8 @@ export function PoliticianStatement() {
   ]
 
   return (
-    <section className="border-b border-border bg-background py-20 sm:py-28 lg:py-32" id="mandate">
-      <div className="mx-auto max-w-5xl px-6 sm:px-8 lg:px-10">
+    <section className="border-b border-border bg-background py-14 sm:py-20 lg:py-28" id="mandate">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16 items-center">
           {/* Editorial Portrait Placeholder */}
           <div className="lg:col-span-5">
@@ -20,7 +20,7 @@ export function PoliticianStatement() {
               <ImagePlaceholder
                 aspectRatio="4/5"
                 src="/image/Leadership_Portrait.png"
-                alt="Leadership portrait — candidate in community dialogue with ward residents, Mayang Imphal"
+                alt="Leadership portrait: candidate in community dialogue with ward residents, Mayang Imphal"
                 category="Leadership Portrait"
                 location="Mayang Imphal Central"
                 title="Candidate in community dialogue with ward residents"
@@ -35,7 +35,7 @@ export function PoliticianStatement() {
 
           {/* Clean, Non-Text-Heavy Statement */}
           <div className="flex flex-col justify-center lg:col-span-7">
-            <blockquote className="font-headline text-2xl sm:text-3xl lg:text-3xl font-semibold text-foreground leading-[1.24] tracking-tight">
+            <blockquote className="font-headline text-xl sm:text-2xl lg:text-3xl font-semibold text-foreground leading-[1.24] tracking-tight">
               &ldquo;Public service is not a trophy of power. It is a quiet, daily accounting to every household in Mayang Imphal.&rdquo;
             </blockquote>
 
