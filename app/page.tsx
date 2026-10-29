@@ -1,41 +1,56 @@
 import React from "react"
+import type { Metadata } from "next"
 import { SiteHeader } from "@/components/site-header"
-import { HeroSection } from "@/components/hero-section"
-import { FocusAreas } from "@/components/focus-areas"
-import { FutureLabsSection } from "@/components/future-labs-section"
-import { ScholarsSection } from "@/components/scholars-section"
-import { LocalPlanningSection } from "@/components/local-planning-section"
-import { ProgressPreviewSection } from "@/components/progress-preview-section"
-import { CommunityIntakeSection } from "@/components/community-intake-section"
-import { SiteFooter } from "@/components/site-footer"
+import HeroSection from "@/components/hero-section-8"
+import LogoCloud from "@/components/logo-cloud-3"
+import { PoliticianStatement } from "@/components/politician/politician-statement"
+import { PoliticianGallery } from "@/components/politician/politician-gallery"
+import { PoliticianPillars } from "@/components/politician/politician-pillars"
+import { PoliticianLedger } from "@/components/politician/politician-ledger"
+import { PoliticianVoices } from "@/components/politician/politician-voices"
+import { PoliticianIntake } from "@/components/politician/politician-intake"
+import FAQs from "@/components/faqs-1"
+import Footer from "@/components/footer-2"
+
+export const metadata: Metadata = {
+  title: "Better Mayang Imphal · Civic Leadership Platform (2027)",
+  description:
+    "Official constituent platform for Mayang Imphal: transparent governance, statutory GIS Master Plan 2045, STEM future labs, and decoupled public accountability.",
+}
 
 export default function HomePage() {
   return (
-    <div className="flex min-h-screen flex-col bg-surface selection:bg-secondary selection:text-white">
+    <div className="min-h-screen bg-background text-foreground selection:bg-secondary selection:text-secondary-foreground">
       <SiteHeader />
-      <main className="flex-1">
-        {/* Section 01: Hero with Background Image, Gradient Masking & Metrics Bar */}
+      <main>
+        {/* 1. Politician Hero: Spacious, Visual & Clear Mandate */}
         <HeroSection />
 
-        {/* Section 02: Structured Areas of Focus (4 Pillars) */}
-        <FocusAreas />
+        {/* 2. Statutory Frameworks & Institutional Alignment */}
+        <LogoCloud />
 
-        {/* Section 03: Mayang Future Labs Interactive 3-Tier Framework & ATL Synergy */}
-        <FutureLabsSection />
+        {/* 3. The Mandate: Personal Statement & Portrait */}
+        <PoliticianStatement />
 
-        {/* Section 04: Freshness-Aware Scholarship Directory & Live Filters */}
-        <ScholarsSection />
+        {/* 4. In the Community: Tabbed Photojournalism Field Journal */}
+        <PoliticianGallery />
 
-        {/* Section 05: Master Plan 2045 Statutory Framework & Two-Dimensional Matrix */}
-        <LocalPlanningSection />
+        {/* 5. Three Core Pillars: Flagship Policies with Large Photo Placeholders */}
+        <PoliticianPillars />
 
-        {/* Section 06: Verified Progress Tracker Preview with Dual-Status Decoupling */}
-        <ProgressPreviewSection />
+        {/* 6. Decoupled Accountability: Bold Metrics & Ground Verification */}
+        <PoliticianLedger />
 
-        {/* Section 07: Community Priority Intake (DPDP Aligned Demonstration Form) */}
-        <CommunityIntakeSection />
+        {/* 7. Community Voices: Spacious Constituent Endorsements */}
+        <PoliticianVoices />
+
+        {/* 8. Direct Answers to Common Questions */}
+        <FAQs />
+
+        {/* 9. Direct Constituent Desk: Citizen Priority Intake */}
+        <PoliticianIntake />
       </main>
-      <SiteFooter />
+      <Footer />
     </div>
   )
 }

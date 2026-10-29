@@ -59,8 +59,14 @@ export default function ScholarshipsPage() {
       }
 
       // Level Filter
-      if (selectedLevel !== "ALL" && scheme.level !== selectedLevel) {
-        return false
+      if (selectedLevel !== "ALL") {
+        const matchesLevel =
+          scheme.level === selectedLevel ||
+          (scheme.slug === "nec-merit-scholarship-renewal" &&
+            ["UNDERGRADUATE", "POSTGRADUATE", "RESEARCH_FELLOWSHIP"].includes(selectedLevel)) ||
+          (scheme.slug === "post-matric-scholarship-manipur" &&
+            ["HIGHER_SECONDARY", "UNDERGRADUATE", "POSTGRADUATE"].includes(selectedLevel))
+        if (!matchesLevel) return false
       }
 
       // Search Query
@@ -77,13 +83,19 @@ export default function ScholarshipsPage() {
     })
   }, [searchQuery, selectedCycle, selectedLevel])
 
-  const handleCopyDeadlines = () => {
+  const handleCopyDeadlines = async () => {
     const text = filteredScholarships
       .map((s) => `${s.name} | Deadline: ${s.studentDeadline || "TBA"} | Sponsor: ${s.officialSponsor} | Portal: scholarships.gov.in`)
       .join("\n\n")
-    navigator.clipboard?.writeText(text)
-    setCopied(true)
-    setTimeout(() => setCopied(false), 2500)
+    if (typeof navigator !== "undefined" && navigator.clipboard?.writeText) {
+      try {
+        await navigator.clipboard.writeText(text)
+        setCopied(true)
+        setTimeout(() => setCopied(false), 2500)
+      } catch {
+        // clipboard access unavailable or denied
+      }
+    }
   }
 
   return (

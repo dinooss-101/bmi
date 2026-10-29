@@ -15,7 +15,10 @@ export function ProjectCard({ project, showFullDetails = false }: ProjectCardPro
   const primarySource = project.sources.find((s) => s.isPrimaryEvidence) || project.sources[0]
 
   return (
-    <Card className="flex flex-col justify-between border-border/80 bg-card/80 transition-shadow hover:shadow-sm">
+    <Card
+      id={project.slug}
+      className="flex flex-col justify-between border-border/80 bg-card/80 transition-shadow hover:shadow-sm scroll-mt-20"
+    >
       <CardHeader className="flex flex-col gap-3 pb-3">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <Badge variant="outline" className="text-xs font-medium text-muted-foreground">

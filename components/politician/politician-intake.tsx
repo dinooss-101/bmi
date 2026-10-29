@@ -39,16 +39,19 @@ export function PoliticianIntake() {
 
         {/* Form Container with Single Containment Layer */}
         <div className="border border-border bg-card p-6 sm:p-10 shadow-xs">
+          <div className="mb-4 inline-flex items-center gap-1.5 border border-border/80 bg-muted/40 px-2.5 py-1 text-[11px] font-medium text-muted-foreground">
+            <span>Demonstration prototype · Client-side preview</span>
+          </div>
           {submitted ? (
             <div className="text-center py-8 space-y-3">
               <div className="mx-auto flex size-12 items-center justify-center border border-secondary bg-secondary/10 text-secondary">
                 <CheckCircle className="size-6" />
               </div>
               <h3 className="font-headline text-xl font-semibold text-foreground">
-                Priority Received
+                Demonstration Preview Generated
               </h3>
               <p className="text-xs sm:text-sm text-muted-foreground max-w-md mx-auto leading-relaxed">
-                Your petition has been recorded in our local Mayang Imphal registry ({mode === "confidential" ? "confidential token generated" : "anonymous session"}). It will be reviewed in the upcoming weekly ward consultation.
+                This client-side preview generated a simulated {mode === "confidential" ? "confidential token" : "anonymous session"}. In this public demonstration, no record is transmitted. For official assistance, please attend Saturday open grievance hours at the Central Bazaar Corridor office.
               </p>
               <Button
                 variant="outline"
@@ -58,7 +61,7 @@ export function PoliticianIntake() {
                 }}
                 className="mt-3 text-xs font-semibold"
               >
-                Log another priority
+                Reset demonstration
               </Button>
             </div>
           ) : (

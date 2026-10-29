@@ -3,11 +3,11 @@ import { MapPin, Mail, Clock } from "lucide-react"
 
 export default function Footer() {
   const navLinks = [
-    { href: "#mandate", label: "2027 Civic Mandate" },
-    { href: "#community-action", label: "Ground Field Journal" },
-    { href: "#pillars", label: "Core Policy Pillars" },
-    { href: "#ledger", label: "Decoupled Accountability Ledger" },
-    { href: "#constituent-desk", label: "Direct Constituent Desk" },
+    { href: "/#mandate", label: "2027 Civic Mandate" },
+    { href: "/#community-action", label: "Ground Field Journal" },
+    { href: "/#pillars", label: "Core Policy Pillars" },
+    { href: "/#ledger", label: "Decoupled Accountability Ledger" },
+    { href: "/#constituent-desk", label: "Direct Constituent Desk" },
   ]
 
   const statutoryLinks = [

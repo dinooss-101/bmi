@@ -14,24 +14,24 @@ interface NavLinkItem {
   exactPath?: string
 }
 
-const NAV_ITEMS: NavLinkItem[] = [
-  { href: "/#focus-areas", label: "Focus", exactPath: "/" },
+const HOME_NAV_ITEMS: NavLinkItem[] = [
+  { href: "/#mandate", label: "Mandate", exactPath: "/" },
+  { href: "/#community-action", label: "Field Journal", exactPath: "/" },
+  { href: "/#pillars", label: "Pillars", exactPath: "/" },
+  { href: "/#ledger", label: "Ledger", exactPath: "/" },
+  { href: "/#voices", label: "Voices", exactPath: "/" },
+  { href: "/#faqs", label: "FAQ", exactPath: "/" },
+  { href: "/#constituent-desk", label: "Desk", exactPath: "/" },
+]
+
+const SUBPAGE_NAV_ITEMS: NavLinkItem[] = [
+  { href: "/", label: "Home", exactPath: "/" },
   { href: "/future-labs", label: "Labs", exactPath: "/future-labs" },
   { href: "/development", label: "Plan", exactPath: "/development" },
   { href: "/progress", label: "Track", exactPath: "/progress" },
   { href: "/scholarships", label: "Scholars", exactPath: "/scholarships" },
   { href: "/about", label: "About", exactPath: "/about" },
   { href: "/contact", label: "Contact", exactPath: "/contact" },
-]
-
-const V2_NAV_ITEMS: NavLinkItem[] = [
-  { href: "/v2#mandate", label: "Mandate", exactPath: "/v2" },
-  { href: "/v2#community-action", label: "Field Journal", exactPath: "/v2" },
-  { href: "/v2#pillars", label: "Pillars", exactPath: "/v2" },
-  { href: "/v2#ledger", label: "Ledger", exactPath: "/v2" },
-  { href: "/v2#voices", label: "Voices", exactPath: "/v2" },
-  { href: "/v2#faqs", label: "FAQ", exactPath: "/v2" },
-  { href: "/v2#constituent-desk", label: "Desk", exactPath: "/v2" },
 ]
 
 export function SiteHeader() {
@@ -49,13 +49,13 @@ export function SiteHeader() {
     return () => window.removeEventListener("hashchange", handleHash)
   }, [])
 
+  const isHome = pathname === "/"
+  const currentNavItems = isHome ? HOME_NAV_ITEMS : SUBPAGE_NAV_ITEMS
+
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     if (href.includes("#")) {
       const hashPart = href.split("#")[1]
-      if (
-        (pathname === "/" && href.startsWith("/#")) ||
-        (pathname === "/v2" && href.includes("#"))
-      ) {
+      if (pathname === "/") {
         e.preventDefault()
         const el = document.getElementById(hashPart)
         if (el) {
@@ -67,21 +67,12 @@ export function SiteHeader() {
     }
   }
 
-  const isV2 = pathname === "/v2"
-  const currentNavItems = isV2 ? V2_NAV_ITEMS : NAV_ITEMS
-
   const isItemActive = (item: NavLinkItem) => {
-    if (isV2) {
+    if (isHome) {
       if (activeHash) {
-        return item.href === `/v2${activeHash}`
+        return item.href === `/#${activeHash.replace("#", "")}`
       }
-      return item.href === "/v2#mandate"
-    }
-    if (item.exactPath === "/" && pathname === "/") {
-      if (activeHash) {
-        return item.href === `/${activeHash}`
-      }
-      return true
+      return item.href === "/#mandate"
     }
     return item.exactPath === pathname
   }

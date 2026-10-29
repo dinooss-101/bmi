@@ -4,17 +4,18 @@ import { Badge } from "@/components/ui/badge"
 import { ScholarshipScheme } from "@/lib/types/scholarship"
 import { Calendar, ExternalLink, ShieldCheck } from "lucide-react"
 
-// Pure reference benchmark date for deterministic SSR and React 19 compiler purity
-const REFERENCE_AY_TIMESTAMP = new Date("2026-10-28T00:00:00Z").getTime()
-
 interface ScholarshipCardProps {
   scholarship: ScholarshipScheme
 }
 
 export function ScholarshipCard({ scholarship }: ScholarshipCardProps) {
-  const isClosingSoon = scholarship.studentDeadline
-    ? new Date(scholarship.studentDeadline).getTime() - REFERENCE_AY_TIMESTAMP < 7 * 24 * 60 * 60 * 1000
-    : false
+  const isClosingSoon = React.useMemo(() => {
+    if (!scholarship.studentDeadline) return false
+    const deadlineTime = new Date(scholarship.studentDeadline).getTime()
+    const now = Date.now()
+    const diff = deadlineTime - now
+    return diff > 0 && diff < 7 * 24 * 60 * 60 * 1000
+  }, [scholarship.studentDeadline])
 
   return (
     <Card className="flex flex-col justify-between border-border/80 bg-card/90 transition-shadow hover:shadow-sm">
