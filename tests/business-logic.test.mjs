@@ -56,3 +56,4 @@ test("matchesScholarshipLevel: correctly filters single and multi-level schemes"
   assert.equal(matchesScholarshipLevel(multiLevel, "POSTGRADUATE"), true)
   assert.equal(matchesScholarshipLevel(multiLevel, "RESEARCH_FELLOWSHIP"), false)
 })
+
