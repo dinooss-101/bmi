@@ -238,7 +238,7 @@ export default function FutureLabsPage() {
                 return (
                   <div
                     key={m.phase}
-                    className={`rounded-xl border p-6 transition-shadow transition-colors ${
+                    className={`rounded-xl border p-6 transition ${
                       isCurrent
                         ? "border-brand-blue bg-card shadow-md"
                         : "border-border/80 bg-card/70 opacity-90"
