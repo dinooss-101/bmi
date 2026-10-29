@@ -6,6 +6,7 @@ import { SiteHeader } from "@/components/site-header"
 import Footer from "@/components/footer-2"
 import { ScholarshipCard } from "@/components/scholarship-card"
 import { mockScholarships } from "@/lib/data/scholarships"
+import type { ScholarshipLevel } from "@/lib/types/scholarship"
 import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -62,7 +63,7 @@ export default function ScholarshipsPage() {
       if (selectedLevel !== "ALL") {
         const matchesLevel =
           scheme.level === selectedLevel ||
-          (scheme.levels && scheme.levels.includes(selectedLevel as any))
+          (scheme.levels && scheme.levels.includes(selectedLevel as ScholarshipLevel))
         if (!matchesLevel) return false
       }
 
