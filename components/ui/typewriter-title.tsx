@@ -426,7 +426,7 @@ function Caret({ caretRef }: { caretRef: Ref<HTMLSpanElement> }) {
   return (
     <span className="relative inline-block w-0">
       <span
-        className="absolute bottom-[-0.05em] left-[0.04em] h-[1em] w-[0.08em] min-w-[2px] bg-current motion-safe:data-[idle=true]:animate-[kokonutui-typewriter-caret_1s_linear_infinite]"
+        className="absolute bottom-[-0.05em] left-[0.04em] h-[1em] w-[0.08em] min-w-0.5 bg-current motion-safe:data-[idle=true]:animate-[kokonutui-typewriter-caret_1s_linear_infinite]"
         data-idle="true"
         ref={caretRef}
       />
