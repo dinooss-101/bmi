@@ -1,0 +1,19 @@
+{
+  "buildPath": "code",
+  "telemetry": false,
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [
+      "node_modules/**",
+      ".next/**"
+    ],
+    "ignoreValues": []
+  },
+  "hook": {
+    "enabled": true,
+    "limits": {
+      "maxFindings": 5,
+      "maxChars": 8000
+    }
+  }
+}
